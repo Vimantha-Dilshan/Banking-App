@@ -1,0 +1,588 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  '/api/v1/customer-management/customer/{customer_id}':
+    get:
+      summary: 'Get a specific customer and related information based on request parameters'
+      operationId: getASpecificCustomerAndRelatedInformationBasedOnRequestParameters
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  firstName: Conner
+                  lastName: Rau
+                  occupation: 'Job Printer'
+                  employerName: 'Okuneva, Trantow and Schmitt'
+                  email: conner.rau@codex.com
+                  phoneNumber: +1-551-620-3522
+                  nic: '35731151782'
+                  dateOfBirth: '1988-03-28'
+                  gender: OTHER
+                  vip: true
+                  discontinued: false
+                  address:
+                    - '5673 Kertzmann Rue Apt. 840'
+                    - 'Suite 319'
+                    - 'Port Clairemouth'
+                    - Nevada
+                    - Uzbekistan
+                    - 40541-5941
+                  accounts:
+                    -
+                      accountMisc:
+                        accountName: 'Prime Saver Account'
+                        category: COMMERCIAL
+                        currency: LKR
+                        status: A
+                        description: 'A classic savings account with a competitive interest rate.'
+                      details:
+                        -
+                          accountNumber: '101555366140'
+                          status: A
+                          availableBalance: '22375641.00'
+                          branch: Kerlukechester
+                          startDate: '2021-06-25'
+                          notes: 'Accusamus sed consequatur libero quisquam et accusantium eaque. Alias eveniet quaerat nihil ex ipsum consequatur. Corrupti et nisi porro. Quasi nemo nam maxime est expedita sunt dolores aperiam.'
+                  debitCards:
+                    -
+                      linkedAccount: '101555366140'
+                      cardNumber: '341402387488352'
+                      cardType: DISCOVER
+                      status: CLOSED
+                      expiryDate: 11/1990
+                      cardholderName: 'CONNER RAU'
+                      notes: 'Facilis id consequatur molestiae autem nisi.'
+                  fixedDeposits:
+                    -
+                      depositAmount: '55355776.00'
+                      interestRate: '5.00'
+                      depositTerm: '2 YEARS'
+                      status: MATURED
+                      startDate: '1977-04-06'
+                      maturityDate: '1979-04-06'
+                      maturityAmount: '60891353.60'
+                      closed: false
+                      notes: 'Minima est saepe veritatis voluptates sit eos.'
+                  creditCards:
+                    -
+                      cardNumber: '4539383817248190'
+                      cardType: MAESTRO
+                      status: INACTIVE
+                      creditLimit: '4002722.27'
+                      availableCredit: '14818.99'
+                      outstandingBalance: '38214.36'
+                      interestRate: '23.53'
+                      expiryDate: 12/2010
+                      cardholderName: 'CONNER RAU'
+                  loans:
+                    -
+                      loanType: STUDENT
+                      loanAmount: '40027899.00'
+                      outstandingBalance: null
+                      interestRate: '8.59'
+                      monthlyInstallment: null
+                      startDate: '1986-04-30'
+                      endDate: '2014-04-19'
+                      status: PENDING
+                  createdAt: '2024-12-09T07:29:19.000000Z'
+                  updatedAt: '2024-12-09T07:29:19.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  firstName:
+                    type: string
+                    example: Conner
+                  lastName:
+                    type: string
+                    example: Rau
+                  occupation:
+                    type: string
+                    example: 'Job Printer'
+                  employerName:
+                    type: string
+                    example: 'Okuneva, Trantow and Schmitt'
+                  email:
+                    type: string
+                    example: conner.rau@codex.com
+                  phoneNumber:
+                    type: string
+                    example: +1-551-620-3522
+                  nic:
+                    type: string
+                    example: '35731151782'
+                  dateOfBirth:
+                    type: string
+                    example: '1988-03-28'
+                  gender:
+                    type: string
+                    example: OTHER
+                  vip:
+                    type: boolean
+                    example: true
+                  discontinued:
+                    type: boolean
+                    example: false
+                  address:
+                    type: array
+                    example:
+                      - '5673 Kertzmann Rue Apt. 840'
+                      - 'Suite 319'
+                      - 'Port Clairemouth'
+                      - Nevada
+                      - Uzbekistan
+                      - 40541-5941
+                    items:
+                      type: string
+                  accounts:
+                    type: array
+                    example:
+                      -
+                        accountMisc:
+                          accountName: 'Prime Saver Account'
+                          category: COMMERCIAL
+                          currency: LKR
+                          status: A
+                          description: 'A classic savings account with a competitive interest rate.'
+                        details:
+                          -
+                            accountNumber: '101555366140'
+                            status: A
+                            availableBalance: '22375641.00'
+                            branch: Kerlukechester
+                            startDate: '2021-06-25'
+                            notes: 'Accusamus sed consequatur libero quisquam et accusantium eaque. Alias eveniet quaerat nihil ex ipsum consequatur. Corrupti et nisi porro. Quasi nemo nam maxime est expedita sunt dolores aperiam.'
+                    items:
+                      type: object
+                      properties:
+                        accountMisc:
+                          type: object
+                          properties:
+                            accountName:
+                              type: string
+                              example: 'Prime Saver Account'
+                            category:
+                              type: string
+                              example: COMMERCIAL
+                            currency:
+                              type: string
+                              example: LKR
+                            status:
+                              type: string
+                              example: A
+                            description:
+                              type: string
+                              example: 'A classic savings account with a competitive interest rate.'
+                        details:
+                          type: array
+                          example:
+                            -
+                              accountNumber: '101555366140'
+                              status: A
+                              availableBalance: '22375641.00'
+                              branch: Kerlukechester
+                              startDate: '2021-06-25'
+                              notes: 'Accusamus sed consequatur libero quisquam et accusantium eaque. Alias eveniet quaerat nihil ex ipsum consequatur. Corrupti et nisi porro. Quasi nemo nam maxime est expedita sunt dolores aperiam.'
+                          items:
+                            type: object
+                            properties:
+                              accountNumber:
+                                type: string
+                                example: '101555366140'
+                              status:
+                                type: string
+                                example: A
+                              availableBalance:
+                                type: string
+                                example: '22375641.00'
+                              branch:
+                                type: string
+                                example: Kerlukechester
+                              startDate:
+                                type: string
+                                example: '2021-06-25'
+                              notes:
+                                type: string
+                                example: 'Accusamus sed consequatur libero quisquam et accusantium eaque. Alias eveniet quaerat nihil ex ipsum consequatur. Corrupti et nisi porro. Quasi nemo nam maxime est expedita sunt dolores aperiam.'
+                  debitCards:
+                    type: array
+                    example:
+                      -
+                        linkedAccount: '101555366140'
+                        cardNumber: '341402387488352'
+                        cardType: DISCOVER
+                        status: CLOSED
+                        expiryDate: 11/1990
+                        cardholderName: 'CONNER RAU'
+                        notes: 'Facilis id consequatur molestiae autem nisi.'
+                    items:
+                      type: object
+                      properties:
+                        linkedAccount:
+                          type: string
+                          example: '101555366140'
+                        cardNumber:
+                          type: string
+                          example: '341402387488352'
+                        cardType:
+                          type: string
+                          example: DISCOVER
+                        status:
+                          type: string
+                          example: CLOSED
+                        expiryDate:
+                          type: string
+                          example: 11/1990
+                        cardholderName:
+                          type: string
+                          example: 'CONNER RAU'
+                        notes:
+                          type: string
+                          example: 'Facilis id consequatur molestiae autem nisi.'
+                  fixedDeposits:
+                    type: array
+                    example:
+                      -
+                        depositAmount: '55355776.00'
+                        interestRate: '5.00'
+                        depositTerm: '2 YEARS'
+                        status: MATURED
+                        startDate: '1977-04-06'
+                        maturityDate: '1979-04-06'
+                        maturityAmount: '60891353.60'
+                        closed: false
+                        notes: 'Minima est saepe veritatis voluptates sit eos.'
+                    items:
+                      type: object
+                      properties:
+                        depositAmount:
+                          type: string
+                          example: '55355776.00'
+                        interestRate:
+                          type: string
+                          example: '5.00'
+                        depositTerm:
+                          type: string
+                          example: '2 YEARS'
+                        status:
+                          type: string
+                          example: MATURED
+                        startDate:
+                          type: string
+                          example: '1977-04-06'
+                        maturityDate:
+                          type: string
+                          example: '1979-04-06'
+                        maturityAmount:
+                          type: string
+                          example: '60891353.60'
+                        closed:
+                          type: boolean
+                          example: false
+                        notes:
+                          type: string
+                          example: 'Minima est saepe veritatis voluptates sit eos.'
+                  creditCards:
+                    type: array
+                    example:
+                      -
+                        cardNumber: '4539383817248190'
+                        cardType: MAESTRO
+                        status: INACTIVE
+                        creditLimit: '4002722.27'
+                        availableCredit: '14818.99'
+                        outstandingBalance: '38214.36'
+                        interestRate: '23.53'
+                        expiryDate: 12/2010
+                        cardholderName: 'CONNER RAU'
+                    items:
+                      type: object
+                      properties:
+                        cardNumber:
+                          type: string
+                          example: '4539383817248190'
+                        cardType:
+                          type: string
+                          example: MAESTRO
+                        status:
+                          type: string
+                          example: INACTIVE
+                        creditLimit:
+                          type: string
+                          example: '4002722.27'
+                        availableCredit:
+                          type: string
+                          example: '14818.99'
+                        outstandingBalance:
+                          type: string
+                          example: '38214.36'
+                        interestRate:
+                          type: string
+                          example: '23.53'
+                        expiryDate:
+                          type: string
+                          example: 12/2010
+                        cardholderName:
+                          type: string
+                          example: 'CONNER RAU'
+                  loans:
+                    type: array
+                    example:
+                      -
+                        loanType: STUDENT
+                        loanAmount: '40027899.00'
+                        outstandingBalance: null
+                        interestRate: '8.59'
+                        monthlyInstallment: null
+                        startDate: '1986-04-30'
+                        endDate: '2014-04-19'
+                        status: PENDING
+                    items:
+                      type: object
+                      properties:
+                        loanType:
+                          type: string
+                          example: STUDENT
+                        loanAmount:
+                          type: string
+                          example: '40027899.00'
+                        outstandingBalance:
+                          type: string
+                          example: null
+                        interestRate:
+                          type: string
+                          example: '8.59'
+                        monthlyInstallment:
+                          type: string
+                          example: null
+                        startDate:
+                          type: string
+                          example: '1986-04-30'
+                        endDate:
+                          type: string
+                          example: '2014-04-19'
+                        status:
+                          type: string
+                          example: PENDING
+                  createdAt:
+                    type: string
+                    example: '2024-12-09T07:29:19.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-12-09T07:29:19.000000Z'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Invalid parameters'
+                properties:
+                  error:
+                    type: string
+                    example: 'Invalid parameters'
+      tags:
+        - 'Customer Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                include:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: string
+                    enum:
+                      - null
+                      - null
+                      - null
+                      - null
+                      - null
+                    nullable: true
+      security: []
+    parameters:
+      -
+        in: path
+        name: customer_id
+        description: 'The ID of the customer.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/customer-management/customer:
+    post:
+      summary: ''
+      operationId: postApiV1CustomerManagementCustomer
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                salutation:
+                  type: string
+                  description: ''
+                  example: REV
+                  nullable: true
+                  enum:
+                    - MR
+                    - MISS
+                    - MRS
+                    - REV
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: tawwudwlzvp
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yimaffhxnwylbidfrl
+                  nullable: false
+                occupation:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ghyunonhxzyktleseyngszol
+                  nullable: true
+                employer_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: wgnofflposcdqqrodgoppn
+                  nullable: true
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: wyman.josiah@example.com
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: gzeodvfvvecbtkp
+                  nullable: true
+                national_id:
+                  type: string
+                  description: ''
+                  example: pariatur
+                  nullable: false
+                address_line_1:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: qjeozur
+                  nullable: false
+                address_line_2:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: jo
+                  nullable: true
+                city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vvjd
+                  nullable: false
+                postal_code:
+                  type: integer
+                  description: ''
+                  example: 10
+                  nullable: true
+                province:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: kkqhhnvtvzp
+                  nullable: true
+                country:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: muprezbtsvwziyxexxnjcqttc
+                  nullable: true
+                date_of_birth:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-12-09T08:35:25'
+                  nullable: false
+                gender:
+                  type: string
+                  description: ''
+                  example: MALE
+                  nullable: false
+                  enum:
+                    - MALE
+                    - FEMALE
+                    - OTHER
+                is_vip:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: true
+                disabled:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                notes:
+                  type: string
+                  description: ''
+                  example: temporibus
+                  nullable: true
+              required:
+                - first_name
+                - last_name
+                - email
+                - national_id
+                - address_line_1
+                - city
+                - date_of_birth
+                - gender
+      security: []
+tags:
+  -
+    name: 'Customer Management'
+    description: ''
+  -
+    name: Endpoints
+    description: ''

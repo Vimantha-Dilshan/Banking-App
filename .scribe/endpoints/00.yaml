@@ -1,0 +1,288 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/customer-management/customer
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      salutation:
+        name: salutation
+        description: ''
+        required: false
+        example: REV
+        type: string
+        enumValues:
+          - MR
+          - MISS
+          - MRS
+          - REV
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      first_name:
+        name: first_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: tawwudwlzvp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: yimaffhxnwylbidfrl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      occupation:
+        name: occupation
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: ghyunonhxzyktleseyngszol
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      employer_name:
+        name: employer_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: wgnofflposcdqqrodgoppn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: wyman.josiah@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: gzeodvfvvecbtkp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      national_id:
+        name: national_id
+        description: ''
+        required: true
+        example: pariatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address_line_1:
+        name: address_line_1
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: qjeozur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address_line_2:
+        name: address_line_2
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: jo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vvjd
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      postal_code:
+        name: postal_code
+        description: ''
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      province:
+        name: province
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: kkqhhnvtvzp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      country:
+        name: country
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: muprezbtsvwziyxexxnjcqttc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      date_of_birth:
+        name: date_of_birth
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-12-09T08:35:25'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gender:
+        name: gender
+        description: ''
+        required: true
+        example: MALE
+        type: string
+        enumValues:
+          - MALE
+          - FEMALE
+          - OTHER
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      is_vip:
+        name: is_vip
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      disabled:
+        name: disabled
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      notes:
+        name: notes
+        description: ''
+        required: false
+        example: temporibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      salutation: REV
+      first_name: tawwudwlzvp
+      last_name: yimaffhxnwylbidfrl
+      occupation: ghyunonhxzyktleseyngszol
+      employer_name: wgnofflposcdqqrodgoppn
+      email: wyman.josiah@example.com
+      phone: gzeodvfvvecbtkp
+      national_id: pariatur
+      address_line_1: qjeozur
+      address_line_2: jo
+      city: vvjd
+      postal_code: 10
+      province: kkqhhnvtvzp
+      country: muprezbtsvwziyxexxnjcqttc
+      date_of_birth: '2024-12-09T08:35:25'
+      gender: MALE
+      is_vip: true
+      disabled: false
+      notes: temporibus
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

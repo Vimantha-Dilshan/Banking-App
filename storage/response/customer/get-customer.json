@@ -1,0 +1,94 @@
+{
+    "id": 1,
+    "firstName": "Conner",
+    "lastName": "Rau",
+    "occupation": "Job Printer",
+    "employerName": "Okuneva, Trantow and Schmitt",
+    "email": "conner.rau@codex.com",
+    "phoneNumber": "+1-551-620-3522",
+    "nic": "35731151782",
+    "dateOfBirth": "1988-03-28",
+    "gender": "OTHER",
+    "vip": true,
+    "discontinued": false,
+    "address": [
+        "5673 Kertzmann Rue Apt. 840",
+        "Suite 319",
+        "Port Clairemouth",
+        "Nevada",
+        "Uzbekistan",
+        "40541-5941"
+    ],
+    "accounts": [
+        {
+            "accountMisc": {
+                "accountName": "Prime Saver Account",
+                "category": "COMMERCIAL",
+                "currency": "LKR",
+                "status": "A",
+                "description": "A classic savings account with a competitive interest rate."
+            },
+            "details": [
+                {
+                    "accountNumber": "101555366140",
+                    "status": "A",
+                    "availableBalance": "22375641.00",
+                    "branch": "Kerlukechester",
+                    "startDate": "2021-06-25",
+                    "notes": "Accusamus sed consequatur libero quisquam et accusantium eaque. Alias eveniet quaerat nihil ex ipsum consequatur. Corrupti et nisi porro. Quasi nemo nam maxime est expedita sunt dolores aperiam."
+                }
+            ]
+        }
+    ],
+    "debitCards": [
+        {
+            "linkedAccount": "101555366140",
+            "cardNumber": "341402387488352",
+            "cardType": "DISCOVER",
+            "status": "CLOSED",
+            "expiryDate": "11/1990",
+            "cardholderName": "CONNER RAU",
+            "notes": "Facilis id consequatur molestiae autem nisi."
+        }
+    ],
+    "fixedDeposits": [
+        {
+            "depositAmount": "55355776.00",
+            "interestRate": "5.00",
+            "depositTerm": "2 YEARS",
+            "status": "MATURED",
+            "startDate": "1977-04-06",
+            "maturityDate": "1979-04-06",
+            "maturityAmount": "60891353.60",
+            "closed": false,
+            "notes": "Minima est saepe veritatis voluptates sit eos."
+        }
+    ],
+    "creditCards": [
+        {
+            "cardNumber": "4539383817248190",
+            "cardType": "MAESTRO",
+            "status": "INACTIVE",
+            "creditLimit": "4002722.27",
+            "availableCredit": "14818.99",
+            "outstandingBalance": "38214.36",
+            "interestRate": "23.53",
+            "expiryDate": "12/2010",
+            "cardholderName": "CONNER RAU"
+        }
+    ],
+    "loans": [
+        {
+            "loanType": "STUDENT",
+            "loanAmount": "40027899.00",
+            "outstandingBalance": null,
+            "interestRate": "8.59",
+            "monthlyInstallment": null,
+            "startDate": "1986-04-30",
+            "endDate": "2014-04-19",
+            "status": "PENDING"
+        }
+    ],
+    "createdAt": "2024-12-09T07:29:19.000000Z",
+    "updatedAt": "2024-12-09T07:29:19.000000Z"
+}

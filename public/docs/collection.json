@@ -1,0 +1,165 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "3773c7a3-af91-4d39-afdd-bd9d6bcbedf7",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Customer Management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get a specific customer and related information based on request parameters",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customer-management\/customer\/:customer_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/customer-management\/customer\/:customer_id",
+                            "variable": [
+                                {
+                                    "id": "customer_id",
+                                    "key": "customer_id",
+                                    "value": "1",
+                                    "description": "The ID of the customer."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"include\":null}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"firstName\": \"Conner\",\n    \"lastName\": \"Rau\",\n    \"occupation\": \"Job Printer\",\n    \"employerName\": \"Okuneva, Trantow and Schmitt\",\n    \"email\": \"conner.rau@codex.com\",\n    \"phoneNumber\": \"+1-551-620-3522\",\n    \"nic\": \"35731151782\",\n    \"dateOfBirth\": \"1988-03-28\",\n    \"gender\": \"OTHER\",\n    \"vip\": true,\n    \"discontinued\": false,\n    \"address\": [\n        \"5673 Kertzmann Rue Apt. 840\",\n        \"Suite 319\",\n        \"Port Clairemouth\",\n        \"Nevada\",\n        \"Uzbekistan\",\n        \"40541-5941\"\n    ],\n    \"accounts\": [\n        {\n            \"accountMisc\": {\n                \"accountName\": \"Prime Saver Account\",\n                \"category\": \"COMMERCIAL\",\n                \"currency\": \"LKR\",\n                \"status\": \"A\",\n                \"description\": \"A classic savings account with a competitive interest rate.\"\n            },\n            \"details\": [\n                {\n                    \"accountNumber\": \"101555366140\",\n                    \"status\": \"A\",\n                    \"availableBalance\": \"22375641.00\",\n                    \"branch\": \"Kerlukechester\",\n                    \"startDate\": \"2021-06-25\",\n                    \"notes\": \"Accusamus sed consequatur libero quisquam et accusantium eaque. Alias eveniet quaerat nihil ex ipsum consequatur. Corrupti et nisi porro. Quasi nemo nam maxime est expedita sunt dolores aperiam.\"\n                }\n            ]\n        }\n    ],\n    \"debitCards\": [\n        {\n            \"linkedAccount\": \"101555366140\",\n            \"cardNumber\": \"341402387488352\",\n            \"cardType\": \"DISCOVER\",\n            \"status\": \"CLOSED\",\n            \"expiryDate\": \"11\/1990\",\n            \"cardholderName\": \"CONNER RAU\",\n            \"notes\": \"Facilis id consequatur molestiae autem nisi.\"\n        }\n    ],\n    \"fixedDeposits\": [\n        {\n            \"depositAmount\": \"55355776.00\",\n            \"interestRate\": \"5.00\",\n            \"depositTerm\": \"2 YEARS\",\n            \"status\": \"MATURED\",\n            \"startDate\": \"1977-04-06\",\n            \"maturityDate\": \"1979-04-06\",\n            \"maturityAmount\": \"60891353.60\",\n            \"closed\": false,\n            \"notes\": \"Minima est saepe veritatis voluptates sit eos.\"\n        }\n    ],\n    \"creditCards\": [\n        {\n            \"cardNumber\": \"4539383817248190\",\n            \"cardType\": \"MAESTRO\",\n            \"status\": \"INACTIVE\",\n            \"creditLimit\": \"4002722.27\",\n            \"availableCredit\": \"14818.99\",\n            \"outstandingBalance\": \"38214.36\",\n            \"interestRate\": \"23.53\",\n            \"expiryDate\": \"12\/2010\",\n            \"cardholderName\": \"CONNER RAU\"\n        }\n    ],\n    \"loans\": [\n        {\n            \"loanType\": \"STUDENT\",\n            \"loanAmount\": \"40027899.00\",\n            \"outstandingBalance\": null,\n            \"interestRate\": \"8.59\",\n            \"monthlyInstallment\": null,\n            \"startDate\": \"1986-04-30\",\n            \"endDate\": \"2014-04-19\",\n            \"status\": \"PENDING\"\n        }\n    ],\n    \"createdAt\": \"2024-12-09T07:29:19.000000Z\",\n    \"updatedAt\": \"2024-12-09T07:29:19.000000Z\"\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"error\": \"Invalid parameters\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/v1\/customer-management\/customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customer-management\/customer",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/customer-management\/customer"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"salutation\":\"REV\",\"first_name\":\"tawwudwlzvp\",\"last_name\":\"yimaffhxnwylbidfrl\",\"occupation\":\"ghyunonhxzyktleseyngszol\",\"employer_name\":\"wgnofflposcdqqrodgoppn\",\"email\":\"wyman.josiah@example.com\",\"phone\":\"gzeodvfvvecbtkp\",\"national_id\":\"pariatur\",\"address_line_1\":\"qjeozur\",\"address_line_2\":\"jo\",\"city\":\"vvjd\",\"postal_code\":10,\"province\":\"kkqhhnvtvzp\",\"country\":\"muprezbtsvwziyxexxnjcqttc\",\"date_of_birth\":\"2024-12-09T08:35:25\",\"gender\":\"MALE\",\"is_vip\":true,\"disabled\":false,\"notes\":\"temporibus\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
