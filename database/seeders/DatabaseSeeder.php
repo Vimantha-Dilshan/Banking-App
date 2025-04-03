@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             MastercardDebitCardSeeder::class,
             CardTypeSeeder::class,
             CustomerAccountTransactionSeeder::class,
+            FeeTypeSeeder::class,
         ]);
     }
 }
