@@ -2,26 +2,58 @@
 
 namespace App\Traits;
 
-class CardTrait
+use App\Models\CardType;
+use App\Models\MastercardCreditCard;
+use App\Models\MastercardDebitCard;
+use App\Models\VisaCreditCard;
+use App\Models\VisaDebitCard;
+
+trait CardTrait
 {
     public function checkCardAvailability($cardNumber, $cardType, $creditCard = false, $debitCard = false)
     {
         if ($creditCard) {
-            return $this->checkCreditCard($cardNumber, $cardType);
+            return $this->checkCreditCardAvailability($cardNumber, $cardType);
         }
 
         if ($debitCard) {
-            return $this->checkDebitCard($cardNumber, $cardType);
+            return $this->checkDebitCardAvailability($cardNumber, $cardType);
         }
+
+        return false;
     }
 
-    public function checkCreditCard($cardNumber, $cardType)
+    public function checkCreditCardAvailability($cardNumber, $cardType)
     {
-        return true;
+        if ($cardType == CardType::VISA) {
+            return VisaCreditCard::where('card_number', $cardNumber)
+                ->available()
+                ->exists();
+        }
+
+        if ($cardType == CardType::MASTERCARD) {
+            return MastercardCreditCard::where('card_number', $cardNumber)
+                ->available()
+                ->exists();
+        }
+
+        return false;
     }
 
-    public function checkDebitCard($cardNumber, $cardType)
+    public function checkDebitCardAvailability($cardNumber, $cardType)
     {
-        return true;
+        if ($cardType == CardType::VISA) {
+            return VisaDebitCard::where('card_number', $cardNumber)
+                ->available()
+                ->exists();
+        }
+
+        if ($cardType == CardType::MASTERCARD) {
+            return MastercardDebitCard::where('card_number', $cardNumber)
+                ->available()
+                ->exists();
+        }
+
+        return false;
     }
 }
