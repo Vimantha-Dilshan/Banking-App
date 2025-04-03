@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('mastercard_credit_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('card_number', 20)->unique();
-            $table->date('expiry_date');
+            $table->string('card_number', 20)->unique()->index();
+            $table->date('expiry_date')->index();
             $table->string('cvv', 10);
             $table->enum('status', ['AVAILABLE', 'ALLOCATED', 'EXPIRED', 'BLOCKED'])->default('AVAILABLE');
             $table->timestamps();

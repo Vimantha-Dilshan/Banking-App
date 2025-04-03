@@ -7,6 +7,174 @@ servers:
   -
     url: 'http://localhost'
 paths:
+  /api/v1/card-management/card:
+    post:
+      summary: 'Store New Card for Customer'
+      operationId: storeNewCardForCustomer
+      description: "Creates a new debit or credit card along with customer and account details.\nOptionally, you can specify debit card and credit card types, along with card details."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  -
+                    description: ''
+                    type: object
+                    example:
+                      linkedAccount: 1
+                      cardNumber: '4954327659059906'
+                      cardType: VISA
+                      status: AVAILABLE
+                      expiryDate: 09/2025
+                      cardholderName: 'VIMANTHA DILSHAN'
+                      notes: 'Test Note!'
+                    properties:
+                      linkedAccount:
+                        type: integer
+                        example: 1
+                      cardNumber:
+                        type: string
+                        example: '4954327659059906'
+                      cardType:
+                        type: string
+                        example: VISA
+                      status:
+                        type: string
+                        example: AVAILABLE
+                      expiryDate:
+                        type: string
+                        example: 09/2025
+                      cardholderName:
+                        type: string
+                        example: 'VIMANTHA DILSHAN'
+                      notes:
+                        type: string
+                        example: 'Test Note!'
+                  -
+                    description: ''
+                    type: object
+                    example:
+                      cardNumber: '4954327659059906'
+                      cardType: VISA
+                      status: AVAILABLE
+                      creditLimit: 5000.0
+                      availableCredit: 4500.0
+                      outstandingBalance: 500.0
+                      interestRate: 14.5
+                      expiryDate: 09/2025
+                      cardholderName: 'VIMANTHA DILSHAN'
+                      notes: 'Test Note!'
+                    properties:
+                      cardNumber:
+                        type: string
+                        example: '4954327659059906'
+                      cardType:
+                        type: string
+                        example: VISA
+                      status:
+                        type: string
+                        example: AVAILABLE
+                      creditLimit:
+                        type: number
+                        example: 5000.0
+                      availableCredit:
+                        type: number
+                        example: 4500.0
+                      outstandingBalance:
+                        type: number
+                        example: 500.0
+                      interestRate:
+                        type: number
+                        example: 14.5
+                      expiryDate:
+                        type: string
+                        example: 09/2025
+                      cardholderName:
+                        type: string
+                        example: 'VIMANTHA DILSHAN'
+                      notes:
+                        type: string
+                        example: 'Test Note!'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Card not available.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Card not available.'
+      tags:
+        - 'Card Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customerId:
+                  type: integer
+                  description: 'The ID of the customer for whom the card is being created.'
+                  example: 9
+                  nullable: false
+                cardDetails:
+                  type: object
+                  description: 'The details of the card to be stored.'
+                  example: []
+                  nullable: false
+                  properties:
+                    debitCard:
+                      type: boolean
+                      description: 'Indicates whether the card is a debit card (true/false).'
+                      example: true
+                      nullable: false
+                    creditCard:
+                      type: boolean
+                      description: 'Indicates whether the card is a credit card (true/false).'
+                      example: true
+                      nullable: false
+                    cardType:
+                      type: string
+                      description: 'The type of the card, can be "VISA", "MASTERCARD", etc.'
+                      example: facilis
+                      nullable: false
+                    cardNumber:
+                      type: string
+                      description: 'The card number (valid card number).'
+                      example: incidunt
+                      nullable: false
+                    cardHolderName:
+                      type: string
+                      description: 'nullable The name of the cardholder.'
+                      example: doloribus
+                      nullable: true
+                    notes:
+                      type: string
+                      description: 'nullable Additional notes about the card.'
+                      example: sunt
+                      nullable: true
+                accountDetails:
+                  type: object
+                  description: 'The associated account details.'
+                  example: []
+                  nullable: false
+                  properties:
+                    accountId:
+                      type: integer
+                      description: 'The account ID to link the card to.'
+                      example: 12
+                      nullable: false
+              required:
+                - customerId
+                - cardDetails
+                - accountDetails
   '/api/v1/customer-management/customer/{id}':
     get:
       summary: 'Get Customer Details'
@@ -419,7 +587,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - debitCards
+                    - loans
                   items:
                     type: string
                     enum:
@@ -434,7 +602,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the customer.'
-        example: 1
+        example: 13
         required: true
         schema:
           type: integer
@@ -557,82 +725,82 @@ paths:
                 salutation:
                   type: string
                   description: 'nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".'
-                  example: voluptate
+                  example: quisquam
                   nullable: true
                 firstName:
                   type: string
                   description: 'The first name of the customer. Max 255 characters.'
-                  example: neque
+                  example: reprehenderit
                   nullable: false
                 lastName:
                   type: string
                   description: 'The last name of the customer. Max 255 characters.'
-                  example: omnis
+                  example: voluptates
                   nullable: false
                 occupation:
                   type: string
                   description: 'nullable The occupation of the customer. Max 255 characters.'
-                  example: perferendis
+                  example: architecto
                   nullable: true
                 employerName:
                   type: string
                   description: 'nullable The employer name of the customer. Max 255 characters.'
-                  example: deleniti
+                  example: quia
                   nullable: true
                 email:
                   type: string
                   description: 'The email address of the customer. Must be unique.'
-                  example: astehr@example.com
+                  example: destin.dare@example.org
                   nullable: false
                 phone:
                   type: string
                   description: 'nullable The phone number of the customer. Max 20 characters.'
-                  example: quisquam
+                  example: voluptatem
                   nullable: true
                 nationalId:
                   type: string
                   description: 'The national ID of the customer. Must be unique.'
-                  example: ea
+                  example: quibusdam
                   nullable: false
                 addressLine1:
                   type: string
                   description: 'The primary address line. Max 255 characters.'
-                  example: quasi
+                  example: ex
                   nullable: false
                 addressLine2:
                   type: string
                   description: 'nullable The secondary address line. Max 255 characters.'
-                  example: voluptate
+                  example: nisi
                   nullable: true
                 city:
                   type: string
                   description: 'The city of the customer. Max 255 characters.'
-                  example: et
+                  example: provident
                   nullable: false
                 postalCode:
                   type: integer
                   description: 'nullable The postal code of the customer.'
-                  example: 7
+                  example: 3
                   nullable: true
                 province:
                   type: string
                   description: 'nullable The province/state of the customer. Max 255 characters.'
-                  example: recusandae
+                  example: quia
                   nullable: true
                 country:
                   type: string
                   description: 'nullable The country of the customer. Max 255 characters.'
-                  example: aut
+                  example: quod
                   nullable: true
                 dateOfBirth:
                   type: date
                   description: 'The date of birth of the customer (YYYY-MM-DD).'
-                  example: minima
+                  example: occaecati
                   nullable: false
                 gender:
                   type: string
                   description: 'The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".'
-                  example: rerum
+                  example: ea
                   nullable: false
                 isVip:
                   type: boolean
@@ -647,13 +815,13 @@ paths:
                 notes:
                   type: string
                   description: 'nullable Additional notes about the customer.'
-                  example: ut
+                  example: voluptatem
                   nullable: true
                 account:
                   type: array
                   description: 'nullable Account details if the customer has an associated account.'
                   example:
-                    - aspernatur
+                    - officia
                   items:
                     type: string
               required:
@@ -688,6 +856,9 @@ paths:
         - Endpoints
       security: []
 tags:
+  -
+    name: 'Card Management'
+    description: ''
   -
     name: 'Customer Management'
     description: ''

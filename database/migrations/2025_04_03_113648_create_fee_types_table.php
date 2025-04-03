@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('fee_types', function (Blueprint $table) {
             $table->id();
-            $table->text('type');
-            $table->decimal('amount', 15, 2);
+            $table->text('type')->index();
+            $table->decimal('amount', 15, 2)->index();
             $table->text('description')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();

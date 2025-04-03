@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('card_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('company', 100);
+            $table->string('name', 50)->index();
+            $table->string('company', 100)->index();
             $table->text('description')->nullable();
             $table->string('logo_url')->nullable();
             $table->timestamps();

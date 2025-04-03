@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\CardController;
 use App\Http\Controllers\V1\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -12,5 +13,9 @@ Route::prefix('v1')->as('v1.')->group(function () {
     Route::prefix('customer-management')->as('customer-management.')->group(function () {
         Route::get('customer/{customer}', [CustomerController::class, 'show'])->name('customer.show');
         Route::post('customer', [CustomerController::class, 'store'])->name('customer.create');
+    });
+
+    Route::prefix('card-management')->as('card-management.')->group(function () {
+        Route::post('card', [CardController::class, 'store'])->name('card.create');
     });
 });

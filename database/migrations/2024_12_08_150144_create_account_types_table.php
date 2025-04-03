@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('account_types', function (Blueprint $table) {
             $table->id();
-            $table->string('account_name');
+            $table->string('account_name')->index();
             $table->enum('category', ['KIDS', 'TEEN', 'COMMERCIAL']);
-            $table->string('currency', 3);
+            $table->string('currency', 3)->index();
             $table->text('description')->nullable();
             $table->enum('status', ['A', 'I', 'P'])->default('A');
             $table->timestamps();

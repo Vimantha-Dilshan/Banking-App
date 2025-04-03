@@ -10,11 +10,64 @@
     ],
     "info": {
         "name": "Banking-App",
-        "_postman_id": "08e12a5d-be5f-467c-872f-782d888b7b51",
+        "_postman_id": "dbcf3fd1-0a7c-4736-bdc0-5ee048dabd77",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Card Management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Store New Card for Customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/card-management\/card",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/card-management\/card"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"customerId\":9,\"cardDetails\":{\"debitCard\":true,\"creditCard\":true,\"cardType\":\"facilis\",\"cardNumber\":\"incidunt\",\"cardHolderName\":\"doloribus\",\"notes\":\"sunt\"},\"accountDetails\":{\"accountId\":12}}"
+                        },
+                        "description": "Creates a new debit or credit card along with customer and account details.\nOptionally, you can specify debit card and credit card types, along with card details."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"linkedAccount\": 1,\n    \"cardNumber\": \"4954327659059906\",\n    \"cardType\": \"VISA\",\n    \"status\": \"AVAILABLE\",\n    \"expiryDate\": \"09\/2025\",\n    \"cardholderName\": \"VIMANTHA DILSHAN\",\n    \"notes\": \"Test Note!\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"cardNumber\": \"4954327659059906\",\n    \"cardType\": \"VISA\",\n    \"status\": \"AVAILABLE\",\n    \"creditLimit\": 5000.00,\n    \"availableCredit\": 4500.00,\n    \"outstandingBalance\": 500.00,\n    \"interestRate\": 14.5,\n    \"expiryDate\": \"09\/2025\",\n    \"cardholderName\": \"VIMANTHA DILSHAN\",\n    \"notes\": \"Test Note!\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"Card not available.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Customer Management",
             "description": "",
@@ -38,7 +91,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "13",
                                     "description": "The ID of the customer."
                                 }
                             ]
@@ -56,7 +109,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"include\":[\"debitCards\"]}"
+                            "raw": "{\"include\":[\"loans\"]}"
                         },
                         "description": "Retrieve a specific customer and related information based on request parameters."
                     },
@@ -97,7 +150,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"salutation\":\"voluptate\",\"firstName\":\"neque\",\"lastName\":\"omnis\",\"occupation\":\"perferendis\",\"employerName\":\"deleniti\",\"email\":\"astehr@example.com\",\"phone\":\"quisquam\",\"nationalId\":\"ea\",\"addressLine1\":\"quasi\",\"addressLine2\":\"voluptate\",\"city\":\"et\",\"postalCode\":7,\"province\":\"recusandae\",\"country\":\"aut\",\"dateOfBirth\":\"minima\",\"gender\":\"rerum\",\"isVip\":true,\"disabled\":true,\"notes\":\"ut\",\"account\":[\"aspernatur\"]}"
+                            "raw": "{\"salutation\":\"quisquam\",\"firstName\":\"reprehenderit\",\"lastName\":\"voluptates\",\"occupation\":\"architecto\",\"employerName\":\"quia\",\"email\":\"destin.dare@example.org\",\"phone\":\"voluptatem\",\"nationalId\":\"quibusdam\",\"addressLine1\":\"ex\",\"addressLine2\":\"nisi\",\"city\":\"provident\",\"postalCode\":3,\"province\":\"quia\",\"country\":\"quod\",\"dateOfBirth\":\"occaecati\",\"gender\":\"ea\",\"isVip\":true,\"disabled\":true,\"notes\":\"voluptatem\",\"account\":[\"officia\"]}"
                         },
                         "description": "Creates a new customer along with an optional account and debit card details."
                     },

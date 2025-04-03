@@ -15,4 +15,10 @@ class FeeType extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public const CUSTOMER_ACCOUNT_MINIMUM_CHARGE = 1;
+
+    public const DEBIT_CARD_VISA_ANNAUL_CHARGE_ID = 2;
+
+    public const DEBIT_CARD_MASTERCARD_ANNAUL_CHARGE_ID = 3;
 }

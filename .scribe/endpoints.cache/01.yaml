@@ -24,14 +24,14 @@ endpoints:
         name: id
         description: 'The ID of the customer.'
         required: true
-        example: 1
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 13
     queryParameters:
       include:
         name: include
@@ -51,7 +51,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - debitCards
+          - loans
         type: 'string[]'
         enumValues:
           - creditCards
@@ -64,7 +64,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       include:
-        - debitCards
+        - loans
     fileParameters: []
     responses:
       -
@@ -207,7 +207,7 @@ endpoints:
         name: salutation
         description: 'nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".'
         required: false
-        example: voluptate
+        example: quisquam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -217,7 +217,7 @@ endpoints:
         name: firstName
         description: 'The first name of the customer. Max 255 characters.'
         required: true
-        example: neque
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -227,7 +227,7 @@ endpoints:
         name: lastName
         description: 'The last name of the customer. Max 255 characters.'
         required: true
-        example: omnis
+        example: voluptates
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -237,7 +237,7 @@ endpoints:
         name: occupation
         description: 'nullable The occupation of the customer. Max 255 characters.'
         required: false
-        example: perferendis
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -247,7 +247,7 @@ endpoints:
         name: employerName
         description: 'nullable The employer name of the customer. Max 255 characters.'
         required: false
-        example: deleniti
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -257,7 +257,7 @@ endpoints:
         name: email
         description: 'The email address of the customer. Must be unique.'
         required: true
-        example: astehr@example.com
+        example: destin.dare@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -267,7 +267,7 @@ endpoints:
         name: phone
         description: 'nullable The phone number of the customer. Max 20 characters.'
         required: false
-        example: quisquam
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -277,7 +277,7 @@ endpoints:
         name: nationalId
         description: 'The national ID of the customer. Must be unique.'
         required: true
-        example: ea
+        example: quibusdam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -287,7 +287,7 @@ endpoints:
         name: addressLine1
         description: 'The primary address line. Max 255 characters.'
         required: true
-        example: quasi
+        example: ex
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -297,7 +297,7 @@ endpoints:
         name: addressLine2
         description: 'nullable The secondary address line. Max 255 characters.'
         required: false
-        example: voluptate
+        example: nisi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -307,7 +307,7 @@ endpoints:
         name: city
         description: 'The city of the customer. Max 255 characters.'
         required: true
-        example: et
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -317,7 +317,7 @@ endpoints:
         name: postalCode
         description: 'nullable The postal code of the customer.'
         required: false
-        example: 7
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -327,7 +327,7 @@ endpoints:
         name: province
         description: 'nullable The province/state of the customer. Max 255 characters.'
         required: false
-        example: recusandae
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -337,7 +337,7 @@ endpoints:
         name: country
         description: 'nullable The country of the customer. Max 255 characters.'
         required: false
-        example: aut
+        example: quod
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -347,7 +347,7 @@ endpoints:
         name: dateOfBirth
         description: 'The date of birth of the customer (YYYY-MM-DD).'
         required: true
-        example: minima
+        example: occaecati
         type: date
         enumValues: []
         exampleWasSpecified: false
@@ -357,7 +357,7 @@ endpoints:
         name: gender
         description: 'The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".'
         required: true
-        example: rerum
+        example: ea
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -387,7 +387,7 @@ endpoints:
         name: notes
         description: 'nullable Additional notes about the customer.'
         required: false
-        example: ut
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -398,7 +398,7 @@ endpoints:
         description: 'nullable Account details if the customer has an associated account.'
         required: false
         example:
-          - aspernatur
+          - officia
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -408,7 +408,7 @@ endpoints:
         name: account.accountType
         description: 'The type of account.'
         required: true
-        example: 9
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -418,7 +418,7 @@ endpoints:
         name: account.accountNumber
         description: 'The unique account number.'
         required: true
-        example: vitae
+        example: minus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -428,7 +428,7 @@ endpoints:
         name: account.balance
         description: 'The initial balance of the account.'
         required: true
-        example: 4972.8
+        example: 20.243
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -438,7 +438,7 @@ endpoints:
         name: account.branch
         description: 'nullable The branch associated with the account.'
         required: false
-        example: natus
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -448,7 +448,7 @@ endpoints:
         name: account.start_date
         description: 'The start date of the account (defaults to today).'
         required: false
-        example: sed
+        example: suscipit
         type: date
         enumValues: []
         exampleWasSpecified: false
@@ -458,7 +458,7 @@ endpoints:
         name: account.notes
         description: 'nullable Additional notes about the account.'
         required: false
-        example: architecto
+        example: ea
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -469,7 +469,7 @@ endpoints:
         description: 'nullable Debit card details if the customer has an associated card.'
         required: false
         example:
-          - non
+          - libero
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -479,17 +479,7 @@ endpoints:
         name: account.debitCard.type
         description: 'The type of debit card.'
         required: true
-        example: possimus
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      account.debitCard.expiryDate:
-        name: account.debitCard.expiryDate
-        description: 'The expiry date of the card (YYYY-MM).'
-        required: true
-        example: ea
+        example: aspernatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -499,7 +489,7 @@ endpoints:
         name: account.debitCard.cardholderName
         description: 'The name of the cardholder.'
         required: true
-        example: eos
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -509,34 +499,34 @@ endpoints:
         name: account.debitCard.notes
         description: 'nullable Additional notes about the debit card.'
         required: false
-        example: eum
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      salutation: voluptate
-      firstName: neque
-      lastName: omnis
-      occupation: perferendis
-      employerName: deleniti
-      email: astehr@example.com
-      phone: quisquam
-      nationalId: ea
-      addressLine1: quasi
-      addressLine2: voluptate
-      city: et
-      postalCode: 7
-      province: recusandae
-      country: aut
-      dateOfBirth: minima
-      gender: rerum
+      salutation: quisquam
+      firstName: reprehenderit
+      lastName: voluptates
+      occupation: architecto
+      employerName: quia
+      email: destin.dare@example.org
+      phone: voluptatem
+      nationalId: quibusdam
+      addressLine1: ex
+      addressLine2: nisi
+      city: provident
+      postalCode: 3
+      province: quia
+      country: quod
+      dateOfBirth: occaecati
+      gender: ea
       isVip: true
       disabled: true
-      notes: ut
+      notes: voluptatem
       account:
-        - aspernatur
+        - officia
     fileParameters: []
     responses:
       -

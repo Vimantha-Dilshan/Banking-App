@@ -14,10 +14,10 @@ return new class extends Migration
             $table->foreignId('customer_account_id')->constrained('customer_accounts');
             $table->enum('transaction_type', ['DEPOSIT', 'WITHDRAWAL', 'TRANSFER', 'FEE', 'INTEREST', 'ADJUSTMENT']);
             $table->enum('transaction_mode', ['IN', 'OUT']);
-            $table->timestamp('transaction_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->decimal('amount', 15, 2);
+            $table->timestamp('transaction_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
+            $table->decimal('amount', 15, 2)->index();
             $table->decimal('balance_after_transaction', 15, 2);
-            $table->string('reference_number', 255)->nullable();
+            $table->string('reference_number', 255)->nullable()->index();
             $table->text('notes')->nullable();
             $table->enum('status', ['PENDING', 'COMPLETED', 'FAILED'])->default('COMPLETED');
             $table->timestamps();

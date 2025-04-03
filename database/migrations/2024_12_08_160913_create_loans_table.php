@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained();
-            $table->decimal('loan_amount', 15, 2);
+            $table->decimal('loan_amount', 15, 2)->index();
             $table->decimal('interest_rate', 5, 2);
             $table->enum('loan_type', ['PERSONAL', 'MORTGAGE', 'CAR', 'STUDENT', 'BUSINESS']);
             $table->enum('status', ['PENDING', 'APPROVED', 'REJECTED', 'COMPLETED']);
