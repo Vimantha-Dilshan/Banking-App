@@ -1,0 +1,22 @@
+{
+    "salutation": "MR",
+    "firstName": "John",
+    "lastName": "Doe",
+    "occupation": "Software Engineer",
+    "employerName": "TechCorp",
+    "email": "johndoe@example.com",
+    "phone": "123456789",
+    "nic": "AB123456",
+    "addressLine1": "123 Main St",
+    "addressLine2": "Apt 4B",
+    "city": "New York",
+    "postalCode": "10001",
+    "province": "NY",
+    "country": "USA",
+    "dateOfBirth": "1990-01-01",
+    "gender": "MALE",
+    "isVip": false,
+    "notes": null,
+    "createdAt": "2024-04-01T10:00:00Z",
+    "updatedAt": "2024-04-01T10:00:00Z"
+}

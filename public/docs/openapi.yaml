@@ -1,18 +1,29 @@
 openapi: 3.0.3
 info:
-  title: Laravel
+  title: Banking-App
   description: ''
   version: 1.0.0
 servers:
   -
     url: 'http://localhost'
 paths:
-  '/api/v1/customer-management/customer/{customer_id}':
+  '/api/v1/customer-management/customer/{id}':
     get:
-      summary: 'Get a specific customer and related information based on request parameters'
-      operationId: getASpecificCustomerAndRelatedInformationBasedOnRequestParameters
-      description: ''
-      parameters: []
+      summary: 'Get Customer Details'
+      operationId: getCustomerDetails
+      description: 'Retrieve a specific customer and related information based on request parameters.'
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Comma-separated list of related resources to include. Possible values: accounts, creditCards, debitCards, loans, fixedDeposits.'
+          example: 'creditCards,debitCards,loans,accounts,fixedDeposits'
+          required: false
+          schema:
+            type: string
+            description: 'Comma-separated list of related resources to include. Possible values: accounts, creditCards, debitCards, loans, fixedDeposits.'
+            example: 'creditCards,debitCards,loans,accounts,fixedDeposits'
+            nullable: false
       responses:
         200:
           description: ''
@@ -383,7 +394,7 @@ paths:
                   updatedAt:
                     type: string
                     example: '2024-12-09T07:29:19.000000Z'
-        400:
+        422:
           description: ''
           content:
             application/json:
@@ -407,26 +418,253 @@ paths:
                 include:
                   type: array
                   description: ''
-                  example: null
+                  example:
+                    - debitCards
                   items:
                     type: string
                     enum:
-                      - null
-                      - null
-                      - null
-                      - null
-                      - null
+                      - creditCards
+                      - debitCards
+                      - loans
+                      - accounts
+                      - fixedDeposits
                     nullable: true
-      security: []
     parameters:
       -
         in: path
-        name: customer_id
+        name: id
         description: 'The ID of the customer.'
         example: 1
         required: true
         schema:
           type: integer
+  /api/v1/customer-management/customer:
+    post:
+      summary: 'Create New Customer'
+      operationId: createNewCustomer
+      description: 'Creates a new customer along with an optional account and debit card details.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  salutation: MR
+                  firstName: John
+                  lastName: Doe
+                  occupation: 'Software Engineer'
+                  employerName: TechCorp
+                  email: johndoe@example.com
+                  phone: '123456789'
+                  nic: AB123456
+                  addressLine1: '123 Main St'
+                  addressLine2: 'Apt 4B'
+                  city: 'New York'
+                  postalCode: '10001'
+                  province: NY
+                  country: USA
+                  dateOfBirth: '1990-01-01'
+                  gender: MALE
+                  isVip: false
+                  notes: null
+                  createdAt: '2024-04-01T10:00:00Z'
+                  updatedAt: '2024-04-01T10:00:00Z'
+                properties:
+                  salutation:
+                    type: string
+                    example: MR
+                  firstName:
+                    type: string
+                    example: John
+                  lastName:
+                    type: string
+                    example: Doe
+                  occupation:
+                    type: string
+                    example: 'Software Engineer'
+                  employerName:
+                    type: string
+                    example: TechCorp
+                  email:
+                    type: string
+                    example: johndoe@example.com
+                  phone:
+                    type: string
+                    example: '123456789'
+                  nic:
+                    type: string
+                    example: AB123456
+                  addressLine1:
+                    type: string
+                    example: '123 Main St'
+                  addressLine2:
+                    type: string
+                    example: 'Apt 4B'
+                  city:
+                    type: string
+                    example: 'New York'
+                  postalCode:
+                    type: string
+                    example: '10001'
+                  province:
+                    type: string
+                    example: NY
+                  country:
+                    type: string
+                    example: USA
+                  dateOfBirth:
+                    type: string
+                    example: '1990-01-01'
+                  gender:
+                    type: string
+                    example: MALE
+                  isVip:
+                    type: boolean
+                    example: false
+                  notes:
+                    type: string
+                    example: null
+                  createdAt:
+                    type: string
+                    example: '2024-04-01T10:00:00Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-04-01T10:00:00Z'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Invalid parameters'
+                properties:
+                  error:
+                    type: string
+                    example: 'Invalid parameters'
+      tags:
+        - 'Customer Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                salutation:
+                  type: string
+                  description: 'nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".'
+                  example: voluptate
+                  nullable: true
+                firstName:
+                  type: string
+                  description: 'The first name of the customer. Max 255 characters.'
+                  example: neque
+                  nullable: false
+                lastName:
+                  type: string
+                  description: 'The last name of the customer. Max 255 characters.'
+                  example: omnis
+                  nullable: false
+                occupation:
+                  type: string
+                  description: 'nullable The occupation of the customer. Max 255 characters.'
+                  example: perferendis
+                  nullable: true
+                employerName:
+                  type: string
+                  description: 'nullable The employer name of the customer. Max 255 characters.'
+                  example: deleniti
+                  nullable: true
+                email:
+                  type: string
+                  description: 'The email address of the customer. Must be unique.'
+                  example: astehr@example.com
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'nullable The phone number of the customer. Max 20 characters.'
+                  example: quisquam
+                  nullable: true
+                nationalId:
+                  type: string
+                  description: 'The national ID of the customer. Must be unique.'
+                  example: ea
+                  nullable: false
+                addressLine1:
+                  type: string
+                  description: 'The primary address line. Max 255 characters.'
+                  example: quasi
+                  nullable: false
+                addressLine2:
+                  type: string
+                  description: 'nullable The secondary address line. Max 255 characters.'
+                  example: voluptate
+                  nullable: true
+                city:
+                  type: string
+                  description: 'The city of the customer. Max 255 characters.'
+                  example: et
+                  nullable: false
+                postalCode:
+                  type: integer
+                  description: 'nullable The postal code of the customer.'
+                  example: 7
+                  nullable: true
+                province:
+                  type: string
+                  description: 'nullable The province/state of the customer. Max 255 characters.'
+                  example: recusandae
+                  nullable: true
+                country:
+                  type: string
+                  description: 'nullable The country of the customer. Max 255 characters.'
+                  example: aut
+                  nullable: true
+                dateOfBirth:
+                  type: date
+                  description: 'The date of birth of the customer (YYYY-MM-DD).'
+                  example: minima
+                  nullable: false
+                gender:
+                  type: string
+                  description: 'The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".'
+                  example: rerum
+                  nullable: false
+                isVip:
+                  type: boolean
+                  description: 'nullable Whether the customer is a VIP. Defaults to false.'
+                  example: true
+                  nullable: true
+                disabled:
+                  type: boolean
+                  description: 'nullable Whether the customer is disabled.'
+                  example: true
+                  nullable: true
+                notes:
+                  type: string
+                  description: 'nullable Additional notes about the customer.'
+                  example: ut
+                  nullable: true
+                account:
+                  type: array
+                  description: 'nullable Account details if the customer has an associated account.'
+                  example:
+                    - aspernatur
+                  items:
+                    type: string
+              required:
+                - firstName
+                - lastName
+                - email
+                - nationalId
+                - addressLine1
+                - city
+                - dateOfBirth
+                - gender
   /api/user:
     get:
       summary: ''
@@ -448,136 +686,6 @@ paths:
                     example: Unauthenticated.
       tags:
         - Endpoints
-      security: []
-  /api/v1/customer-management/customer:
-    post:
-      summary: ''
-      operationId: postApiV1CustomerManagementCustomer
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                salutation:
-                  type: string
-                  description: ''
-                  example: REV
-                  nullable: true
-                  enum:
-                    - MR
-                    - MISS
-                    - MRS
-                    - REV
-                first_name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: tawwudwlzvp
-                  nullable: false
-                last_name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: yimaffhxnwylbidfrl
-                  nullable: false
-                occupation:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: ghyunonhxzyktleseyngszol
-                  nullable: true
-                employer_name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: wgnofflposcdqqrodgoppn
-                  nullable: true
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: wyman.josiah@example.com
-                  nullable: false
-                phone:
-                  type: string
-                  description: 'Must not be greater than 20 characters.'
-                  example: gzeodvfvvecbtkp
-                  nullable: true
-                national_id:
-                  type: string
-                  description: ''
-                  example: pariatur
-                  nullable: false
-                address_line_1:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: qjeozur
-                  nullable: false
-                address_line_2:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: jo
-                  nullable: true
-                city:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: vvjd
-                  nullable: false
-                postal_code:
-                  type: integer
-                  description: ''
-                  example: 10
-                  nullable: true
-                province:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: kkqhhnvtvzp
-                  nullable: true
-                country:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: muprezbtsvwziyxexxnjcqttc
-                  nullable: true
-                date_of_birth:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-12-09T08:35:25'
-                  nullable: false
-                gender:
-                  type: string
-                  description: ''
-                  example: MALE
-                  nullable: false
-                  enum:
-                    - MALE
-                    - FEMALE
-                    - OTHER
-                is_vip:
-                  type: boolean
-                  description: ''
-                  example: true
-                  nullable: true
-                disabled:
-                  type: boolean
-                  description: ''
-                  example: false
-                  nullable: true
-                notes:
-                  type: string
-                  description: ''
-                  example: temporibus
-                  nullable: true
-              required:
-                - first_name
-                - last_name
-                - email
-                - national_id
-                - address_line_1
-                - city
-                - date_of_birth
-                - gender
       security: []
 tags:
   -

@@ -9,8 +9,8 @@
         }
     ],
     "info": {
-        "name": "Laravel",
-        "_postman_id": "3773c7a3-af91-4d39-afdd-bd9d6bcbedf7",
+        "name": "Banking-App",
+        "_postman_id": "08e12a5d-be5f-467c-872f-782d888b7b51",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,17 +20,24 @@
             "description": "",
             "item": [
                 {
-                    "name": "Get a specific customer and related information based on request parameters",
+                    "name": "Get Customer Details",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer-management\/customer\/:customer_id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer-management\/customer\/:customer_id",
+                            "path": "api\/v1\/customer-management\/customer\/:id",
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "creditCards%2CdebitCards%2Cloans%2Caccounts%2CfixedDeposits",
+                                    "description": "Comma-separated list of related resources to include. Possible values: accounts, creditCards, debitCards, loans, fixedDeposits.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/customer-management\/customer\/:id?include=creditCards%2CdebitCards%2Cloans%2Caccounts%2CfixedDeposits",
                             "variable": [
                                 {
-                                    "id": "customer_id",
-                                    "key": "customer_id",
+                                    "id": "id",
+                                    "key": "id",
                                     "value": "1",
                                     "description": "The ID of the customer."
                                 }
@@ -49,12 +56,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"include\":null}"
+                            "raw": "{\"include\":[\"debitCards\"]}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "Retrieve a specific customer and related information based on request parameters."
                     },
                     "response": [
                         {
@@ -65,7 +69,48 @@
                         },
                         {
                             "header": [],
-                            "code": 400,
+                            "code": 422,
+                            "body": "{\n    \"error\": \"Invalid parameters\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create New Customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customer-management\/customer",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/customer-management\/customer"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"salutation\":\"voluptate\",\"firstName\":\"neque\",\"lastName\":\"omnis\",\"occupation\":\"perferendis\",\"employerName\":\"deleniti\",\"email\":\"astehr@example.com\",\"phone\":\"quisquam\",\"nationalId\":\"ea\",\"addressLine1\":\"quasi\",\"addressLine2\":\"voluptate\",\"city\":\"et\",\"postalCode\":7,\"province\":\"recusandae\",\"country\":\"aut\",\"dateOfBirth\":\"minima\",\"gender\":\"rerum\",\"isVip\":true,\"disabled\":true,\"notes\":\"ut\",\"account\":[\"aspernatur\"]}"
+                        },
+                        "description": "Creates a new customer along with an optional account and debit card details."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"salutation\": \"MR\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"occupation\": \"Software Engineer\",\n    \"employerName\": \"TechCorp\",\n    \"email\": \"johndoe@example.com\",\n    \"phone\": \"123456789\",\n    \"nic\": \"AB123456\",\n    \"addressLine1\": \"123 Main St\",\n    \"addressLine2\": \"Apt 4B\",\n    \"city\": \"New York\",\n    \"postalCode\": \"10001\",\n    \"province\": \"NY\",\n    \"country\": \"USA\",\n    \"dateOfBirth\": \"1990-01-01\",\n    \"gender\": \"MALE\",\n    \"isVip\": false,\n    \"notes\": null,\n    \"createdAt\": \"2024-04-01T10:00:00Z\",\n    \"updatedAt\": \"2024-04-01T10:00:00Z\"\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
                             "body": "{\n    \"error\": \"Invalid parameters\"\n}",
                             "name": ""
                         }
@@ -124,37 +169,6 @@
                             "name": ""
                         }
                     ]
-                },
-                {
-                    "name": "POST api\/v1\/customer-management\/customer",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer-management\/customer",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer-management\/customer"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"salutation\":\"REV\",\"first_name\":\"tawwudwlzvp\",\"last_name\":\"yimaffhxnwylbidfrl\",\"occupation\":\"ghyunonhxzyktleseyngszol\",\"employer_name\":\"wgnofflposcdqqrodgoppn\",\"email\":\"wyman.josiah@example.com\",\"phone\":\"gzeodvfvvecbtkp\",\"national_id\":\"pariatur\",\"address_line_1\":\"qjeozur\",\"address_line_2\":\"jo\",\"city\":\"vvjd\",\"postal_code\":10,\"province\":\"kkqhhnvtvzp\",\"country\":\"muprezbtsvwziyxexxnjcqttc\",\"date_of_birth\":\"2024-12-09T08:35:25\",\"gender\":\"MALE\",\"is_vip\":true,\"disabled\":false,\"notes\":\"temporibus\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
                 }
             ]
         }

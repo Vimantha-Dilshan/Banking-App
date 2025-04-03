@@ -4,22 +4,22 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/customer-management/customer/{customer_id}'
+    uri: 'api/v1/customer-management/customer/{id}'
     metadata:
       groupName: 'Customer Management'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get a specific customer and related information based on request parameters'
-      description: ''
-      authenticated: false
+      title: 'Get Customer Details'
+      description: 'Retrieve a specific customer and related information based on request parameters.'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      customer_id:
-        name: customer_id
+      id:
+        name: id
         description: 'The ID of the customer.'
         required: true
         example: 1
@@ -29,27 +29,40 @@ endpoints:
         nullable: false
         custom: []
     cleanUrlParameters:
-      customer_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
+      id: 1
+    queryParameters:
+      include:
+        name: include
+        description: 'Comma-separated list of related resources to include. Possible values: accounts, creditCards, debitCards, loans, fixedDeposits.'
+        required: false
+        example: 'creditCards,debitCards,loans,accounts,fixedDeposits'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      include: 'creditCards,debitCards,loans,accounts,fixedDeposits'
     bodyParameters:
       include:
         name: include
         description: ''
         required: false
-        example: null
+        example:
+          - debitCards
         type: 'string[]'
         enumValues:
-          - null
-          - null
-          - null
-          - null
-          - null
-        exampleWasSpecified: true
+          - creditCards
+          - debitCards
+          - loans
+          - accounts
+          - fixedDeposits
+        exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      include: null
+      include:
+        - debitCards
     fileParameters: []
     responses:
       -
@@ -153,7 +166,407 @@ endpoints:
         description: ''
         custom: []
       -
-        status: 400
+        status: 422
+        content: |-
+          {
+              "error": "Invalid parameters"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/customer-management/customer
+    metadata:
+      groupName: 'Customer Management'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create New Customer'
+      description: 'Creates a new customer along with an optional account and debit card details.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      salutation:
+        name: salutation
+        description: 'nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".'
+        required: false
+        example: voluptate
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      firstName:
+        name: firstName
+        description: 'The first name of the customer. Max 255 characters.'
+        required: true
+        example: neque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      lastName:
+        name: lastName
+        description: 'The last name of the customer. Max 255 characters.'
+        required: true
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      occupation:
+        name: occupation
+        description: 'nullable The occupation of the customer. Max 255 characters.'
+        required: false
+        example: perferendis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      employerName:
+        name: employerName
+        description: 'nullable The employer name of the customer. Max 255 characters.'
+        required: false
+        example: deleniti
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      email:
+        name: email
+        description: 'The email address of the customer. Must be unique.'
+        required: true
+        example: astehr@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'nullable The phone number of the customer. Max 20 characters.'
+        required: false
+        example: quisquam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      nationalId:
+        name: nationalId
+        description: 'The national ID of the customer. Must be unique.'
+        required: true
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      addressLine1:
+        name: addressLine1
+        description: 'The primary address line. Max 255 characters.'
+        required: true
+        example: quasi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      addressLine2:
+        name: addressLine2
+        description: 'nullable The secondary address line. Max 255 characters.'
+        required: false
+        example: voluptate
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'The city of the customer. Max 255 characters.'
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      postalCode:
+        name: postalCode
+        description: 'nullable The postal code of the customer.'
+        required: false
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      province:
+        name: province
+        description: 'nullable The province/state of the customer. Max 255 characters.'
+        required: false
+        example: recusandae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      country:
+        name: country
+        description: 'nullable The country of the customer. Max 255 characters.'
+        required: false
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'The date of birth of the customer (YYYY-MM-DD).'
+        required: true
+        example: minima
+        type: date
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gender:
+        name: gender
+        description: 'The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".'
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      isVip:
+        name: isVip
+        description: 'nullable Whether the customer is a VIP. Defaults to false.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      disabled:
+        name: disabled
+        description: 'nullable Whether the customer is disabled.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      notes:
+        name: notes
+        description: 'nullable Additional notes about the customer.'
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      account:
+        name: account
+        description: 'nullable Account details if the customer has an associated account.'
+        required: false
+        example:
+          - aspernatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.accountType:
+        name: account.accountType
+        description: 'The type of account.'
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.accountNumber:
+        name: account.accountNumber
+        description: 'The unique account number.'
+        required: true
+        example: vitae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.balance:
+        name: account.balance
+        description: 'The initial balance of the account.'
+        required: true
+        example: 4972.8
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.branch:
+        name: account.branch
+        description: 'nullable The branch associated with the account.'
+        required: false
+        example: natus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.start_date:
+        name: account.start_date
+        description: 'The start date of the account (defaults to today).'
+        required: false
+        example: sed
+        type: date
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.notes:
+        name: account.notes
+        description: 'nullable Additional notes about the account.'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.debitCard:
+        name: account.debitCard
+        description: 'nullable Debit card details if the customer has an associated card.'
+        required: false
+        example:
+          - non
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.debitCard.type:
+        name: account.debitCard.type
+        description: 'The type of debit card.'
+        required: true
+        example: possimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.debitCard.expiryDate:
+        name: account.debitCard.expiryDate
+        description: 'The expiry date of the card (YYYY-MM).'
+        required: true
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.debitCard.cardholderName:
+        name: account.debitCard.cardholderName
+        description: 'The name of the cardholder.'
+        required: true
+        example: eos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      account.debitCard.notes:
+        name: account.debitCard.notes
+        description: 'nullable Additional notes about the debit card.'
+        required: false
+        example: eum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      salutation: voluptate
+      firstName: neque
+      lastName: omnis
+      occupation: perferendis
+      employerName: deleniti
+      email: astehr@example.com
+      phone: quisquam
+      nationalId: ea
+      addressLine1: quasi
+      addressLine2: voluptate
+      city: et
+      postalCode: 7
+      province: recusandae
+      country: aut
+      dateOfBirth: minima
+      gender: rerum
+      isVip: true
+      disabled: true
+      notes: ut
+      account:
+        - aspernatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "salutation": "MR",
+              "firstName": "John",
+              "lastName": "Doe",
+              "occupation": "Software Engineer",
+              "employerName": "TechCorp",
+              "email": "johndoe@example.com",
+              "phone": "123456789",
+              "nic": "AB123456",
+              "addressLine1": "123 Main St",
+              "addressLine2": "Apt 4B",
+              "city": "New York",
+              "postalCode": "10001",
+              "province": "NY",
+              "country": "USA",
+              "dateOfBirth": "1990-01-01",
+              "gender": "MALE",
+              "isVip": false,
+              "notes": null,
+              "createdAt": "2024-04-01T10:00:00Z",
+              "updatedAt": "2024-04-01T10:00:00Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
         content: |-
           {
               "error": "Invalid parameters"

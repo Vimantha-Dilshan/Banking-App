@@ -14,12 +14,12 @@ class StoreCustomerRequest extends FormRequest
                 'nullable',
                 Rule::in(['MR', 'MISS', 'MRS', 'REV']),
             ],
-            'first_name' => [
+            'firstName' => [
                 'required',
                 'string',
                 'max:255',
             ],
-            'last_name' => [
+            'lastName' => [
                 'required',
                 'string',
                 'max:255',
@@ -29,7 +29,7 @@ class StoreCustomerRequest extends FormRequest
                 'string',
                 'max:255',
             ],
-            'employer_name' => [
+            'employerName' => [
                 'nullable',
                 'string',
                 'max:255',
@@ -44,17 +44,17 @@ class StoreCustomerRequest extends FormRequest
                 'string',
                 'max:20',
             ],
-            'national_id' => [
+            'nationalId' => [
                 'required',
                 'string',
                 'unique:customers,national_id',
             ],
-            'address_line_1' => [
+            'addressLine1' => [
                 'required',
                 'string',
                 'max:255',
             ],
-            'address_line_2' => [
+            'addressLine2' => [
                 'nullable',
                 'string',
                 'max:255',
@@ -64,7 +64,7 @@ class StoreCustomerRequest extends FormRequest
                 'string',
                 'max:255',
             ],
-            'postal_code' => [
+            'postalCode' => [
                 'nullable',
                 'integer',
             ],
@@ -78,7 +78,7 @@ class StoreCustomerRequest extends FormRequest
                 'string',
                 'max:255',
             ],
-            'date_of_birth' => [
+            'dateOfBirth' => [
                 'required',
                 'date',
             ],
@@ -86,7 +86,7 @@ class StoreCustomerRequest extends FormRequest
                 'required',
                 Rule::in(['MALE', 'FEMALE', 'OTHER']),
             ],
-            'is_vip' => [
+            'isVip' => [
                 'nullable',
                 'boolean',
             ],
