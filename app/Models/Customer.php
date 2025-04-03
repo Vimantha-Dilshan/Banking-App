@@ -10,6 +10,13 @@ class Customer extends Model
 {
     use HasFactory, Searchable;
 
+    protected $guarded = [];
+
+    protected $casts = [
+        'is_vip' => 'boolean',
+        'disabled' => 'boolean',
+    ];
+
     public const SALUTATION_MR = 'MR';
 
     public const SALUTATION_MISS = 'MISS';
@@ -23,13 +30,6 @@ class Customer extends Model
     public const GENDER_FEMALE = 'FEMALE';
 
     public const GENDER_OTHER = 'OTHER';
-
-    protected $guarded = [];
-
-    protected $casts = [
-        'is_vip' => 'boolean',
-        'disabled' => 'boolean',
-    ];
 
     public function creditCards()
     {

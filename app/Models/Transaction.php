@@ -10,6 +10,8 @@ class Transaction extends Model
 {
     use HasFactory, Searchable;
 
+    protected $guarded = [];
+
     const TRANSACTION_TYPE_DEPOSIT = 'DEPOSIT';
 
     const TRANSACTION_TYPE_WITHDRAWAL = 'WITHDRAWAL';
@@ -25,8 +27,6 @@ class Transaction extends Model
     const STATUS_FAILED = 'FAILED';
 
     const STATUS_CANCELLED = 'CANCELLED';
-
-    protected $guarded = [];
 
     public function customerAccount()
     {

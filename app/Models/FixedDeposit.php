@@ -10,6 +10,12 @@ class FixedDeposit extends Model
 {
     use HasFactory, Searchable;
 
+    protected $guarded = [];
+
+    protected $casts = [
+        'closed' => 'boolean',
+    ];
+
     const DEPOSIT_TERM_6_MONTHS = '6 MONTHS';
 
     const DEPOSIT_TERM_1_YEAR = '1 YEAR';
@@ -27,12 +33,6 @@ class FixedDeposit extends Model
     const STATUS_WITHDRAWN = 'WITHDRAWN';
 
     const STATUS_CLOSED = 'CLOSED';
-
-    protected $guarded = [];
-
-    protected $casts = [
-        'closed' => 'boolean',
-    ];
 
     public function customer()
     {

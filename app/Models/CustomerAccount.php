@@ -10,13 +10,13 @@ class CustomerAccount extends Model
 {
     use HasFactory, Searchable;
 
+    protected $guarded = [];
+
     public const STATUS_ACTIVE = 'A';
 
     public const STATUS_INACTIVE = 'I';
 
     public const STATUS_PENDING = 'P';
-
-    protected $guarded = [];
 
     public function customer()
     {

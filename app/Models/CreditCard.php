@@ -10,6 +10,8 @@ class CreditCard extends Model
 {
     use HasFactory, Searchable;
 
+    protected $guarded = [];
+
     const CARD_TYPE_VISA = 'VISA';
 
     const CARD_TYPE_MASTERCARD = 'MASTERCARD';
@@ -29,8 +31,6 @@ class CreditCard extends Model
     const STATUS_SUSPENDED = 'SUSPENDED';
 
     const STATUS_CLOSED = 'CLOSED';
-
-    protected $guarded = [];
 
     public function customer()
     {

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AccountTypeSeeder::class,
             CustomerSeeder::class,
+            VisaDebitCardSeeder::class,
+            VisaCreditCardSeeder::class,
         ]);
     }
 }

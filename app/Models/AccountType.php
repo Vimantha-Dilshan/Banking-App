@@ -10,6 +10,8 @@ class AccountType extends Model
 {
     use HasFactory, Searchable;
 
+    protected $guarded = [];
+
     public const STATUS_ACTIVE = 'A';
 
     public const STATUS_INACTIVE = 'I';
@@ -99,8 +101,6 @@ class AccountType extends Model
         'description' => 'A high-yield savings account for customers with substantial balances.',
         'category' => self::CATEGORY_COMMERCIAL,
     ];
-
-    protected $guarded = [];
 
     public function customerAccounts()
     {

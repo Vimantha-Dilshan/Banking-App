@@ -80,7 +80,6 @@ class CustomerController extends Controller
      * @bodyParam isVip boolean nullable Whether the customer is a VIP. Defaults to false.
      * @bodyParam disabled boolean nullable Whether the customer is disabled.
      * @bodyParam notes string nullable Additional notes about the customer.
-     *
      * @bodyParam account array nullable Account details if the customer has an associated account.
      * @bodyParam account.accountType integer required The type of account.
      * @bodyParam account.accountNumber string required The unique account number.
@@ -88,7 +87,6 @@ class CustomerController extends Controller
      * @bodyParam account.branch string nullable The branch associated with the account.
      * @bodyParam account.start_date date The start date of the account (defaults to today).
      * @bodyParam account.notes string nullable Additional notes about the account.
-     *
      * @bodyParam account.debitCard array nullable Debit card details if the customer has an associated card.
      * @bodyParam account.debitCard.type string required The type of debit card.
      * @bodyParam account.debitCard.expiryDate string required The expiry date of the card (YYYY-MM).
