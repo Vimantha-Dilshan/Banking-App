@@ -24,14 +24,14 @@ endpoints:
         name: id
         description: 'The ID of the customer.'
         required: true
-        example: 13
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 1
     queryParameters:
       include:
         name: include
@@ -51,7 +51,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - loans
+          - fixedDeposits
         type: 'string[]'
         enumValues:
           - creditCards
@@ -64,7 +64,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       include:
-        - loans
+        - fixedDeposits
     fileParameters: []
     responses:
       -
@@ -207,160 +207,160 @@ endpoints:
         name: salutation
         description: 'nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".'
         required: false
-        example: quisquam
+        example: MR
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       firstName:
         name: firstName
         description: 'The first name of the customer. Max 255 characters.'
         required: true
-        example: reprehenderit
+        example: Joe
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       lastName:
         name: lastName
         description: 'The last name of the customer. Max 255 characters.'
         required: true
-        example: voluptates
+        example: Root
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       occupation:
         name: occupation
         description: 'nullable The occupation of the customer. Max 255 characters.'
         required: false
-        example: architecto
+        example: Athlete
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       employerName:
         name: employerName
         description: 'nullable The employer name of the customer. Max 255 characters.'
         required: false
-        example: quia
+        example: 'England Cricket Board (ECB)'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       email:
         name: email
         description: 'The email address of the customer. Must be unique.'
         required: true
-        example: destin.dare@example.org
+        example: joe.root@ecb.com.uk
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       phone:
         name: phone
         description: 'nullable The phone number of the customer. Max 20 characters.'
         required: false
-        example: voluptatem
+        example: '+44 20 7123 4567'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       nationalId:
         name: nationalId
         description: 'The national ID of the customer. Must be unique.'
         required: true
-        example: quibusdam
+        example: QQ123456B
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       addressLine1:
         name: addressLine1
         description: 'The primary address line. Max 255 characters.'
         required: true
-        example: ex
+        example: '5931 Derick Grove'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       addressLine2:
         name: addressLine2
         description: 'nullable The secondary address line. Max 255 characters.'
         required: false
-        example: nisi
+        example: 'Suite 751'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       city:
         name: city
         description: 'The city of the customer. Max 255 characters.'
         required: true
-        example: provident
+        example: London
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       postalCode:
         name: postalCode
         description: 'nullable The postal code of the customer.'
         required: false
-        example: 3
-        type: integer
+        example: 'GU16 7HF'
+        type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       province:
         name: province
         description: 'nullable The province/state of the customer. Max 255 characters.'
         required: false
-        example: quia
+        example: London
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       country:
         name: country
         description: 'nullable The country of the customer. Max 255 characters.'
         required: false
-        example: quod
+        example: England
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       dateOfBirth:
         name: dateOfBirth
         description: 'The date of birth of the customer (YYYY-MM-DD).'
         required: true
-        example: occaecati
+        example: '1990-12-30'
         type: date
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       gender:
         name: gender
         description: 'The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".'
         required: true
-        example: ea
+        example: MALE
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       isVip:
@@ -370,27 +370,27 @@ endpoints:
         example: true
         type: boolean
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       disabled:
         name: disabled
         description: 'nullable Whether the customer is disabled.'
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       notes:
         name: notes
         description: 'nullable Additional notes about the customer.'
         required: false
-        example: voluptatem
+        example: 'Loerum ipsum'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       account:
@@ -398,7 +398,7 @@ endpoints:
         description: 'nullable Account details if the customer has an associated account.'
         required: false
         example:
-          - officia
+          - dolores
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -408,60 +408,50 @@ endpoints:
         name: account.accountType
         description: 'The type of account.'
         required: true
-        example: 7
+        example: 66
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.accountNumber:
         name: account.accountNumber
         description: 'The unique account number.'
         required: true
-        example: minus
+        example: '101099518837'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.balance:
         name: account.balance
         description: 'The initial balance of the account.'
         required: true
-        example: 20.243
+        example: 10000.0
         type: number
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.branch:
         name: account.branch
         description: 'nullable The branch associated with the account.'
         required: false
-        example: sit
+        example: 'North London'
         type: string
         enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      account.start_date:
-        name: account.start_date
-        description: 'The start date of the account (defaults to today).'
-        required: false
-        example: suscipit
-        type: date
-        enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.notes:
         name: account.notes
         description: 'nullable Additional notes about the account.'
         required: false
-        example: ea
+        example: 'Loerum ipsum'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.debitCard:
@@ -469,7 +459,7 @@ endpoints:
         description: 'nullable Debit card details if the customer has an associated card.'
         required: false
         example:
-          - libero
+          - harum
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -479,54 +469,54 @@ endpoints:
         name: account.debitCard.type
         description: 'The type of debit card.'
         required: true
-        example: aspernatur
+        example: AMEX
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.debitCard.cardholderName:
         name: account.debitCard.cardholderName
         description: 'The name of the cardholder.'
         required: true
-        example: rerum
+        example: 'JOE ROOT'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       account.debitCard.notes:
         name: account.debitCard.notes
         description: 'nullable Additional notes about the debit card.'
         required: false
-        example: ut
+        example: 'Loerum ipsum'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      salutation: quisquam
-      firstName: reprehenderit
-      lastName: voluptates
-      occupation: architecto
-      employerName: quia
-      email: destin.dare@example.org
-      phone: voluptatem
-      nationalId: quibusdam
-      addressLine1: ex
-      addressLine2: nisi
-      city: provident
-      postalCode: 3
-      province: quia
-      country: quod
-      dateOfBirth: occaecati
-      gender: ea
+      salutation: MR
+      firstName: Joe
+      lastName: Root
+      occupation: Athlete
+      employerName: 'England Cricket Board (ECB)'
+      email: joe.root@ecb.com.uk
+      phone: '+44 20 7123 4567'
+      nationalId: QQ123456B
+      addressLine1: '5931 Derick Grove'
+      addressLine2: 'Suite 751'
+      city: London
+      postalCode: 'GU16 7HF'
+      province: London
+      country: England
+      dateOfBirth: '1990-12-30'
+      gender: MALE
       isVip: true
-      disabled: true
-      notes: voluptatem
+      disabled: false
+      notes: 'Loerum ipsum'
       account:
-        - officia
+        - dolores
     fileParameters: []
     responses:
       -

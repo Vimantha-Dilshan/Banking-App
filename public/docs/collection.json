@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Banking-App",
-        "_postman_id": "dbcf3fd1-0a7c-4736-bdc0-5ee048dabd77",
+        "_postman_id": "f1193cb8-f55a-4cd7-88cb-b5d374e704b1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"customerId\":9,\"cardDetails\":{\"debitCard\":true,\"creditCard\":true,\"cardType\":\"facilis\",\"cardNumber\":\"incidunt\",\"cardHolderName\":\"doloribus\",\"notes\":\"sunt\"},\"accountDetails\":{\"accountId\":12}}"
+                            "raw": "{\"customerId\":1234,\"cardDetails\":{\"debitCard\":true,\"creditCard\":true,\"cardType\":\"MASTERCARD\",\"cardNumber\":\"4916659541180962\",\"cardHolderName\":\"JOE ROOT\",\"notes\":\"Loerum Ipsum\"},\"accountDetails\":{\"accountId\":1234}}"
                         },
                         "description": "Creates a new debit or credit card along with customer and account details.\nOptionally, you can specify debit card and credit card types, along with card details."
                     },
@@ -91,7 +91,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the customer."
                                 }
                             ]
@@ -109,7 +109,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"include\":[\"loans\"]}"
+                            "raw": "{\"include\":[\"fixedDeposits\"]}"
                         },
                         "description": "Retrieve a specific customer and related information based on request parameters."
                     },
@@ -150,7 +150,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"salutation\":\"quisquam\",\"firstName\":\"reprehenderit\",\"lastName\":\"voluptates\",\"occupation\":\"architecto\",\"employerName\":\"quia\",\"email\":\"destin.dare@example.org\",\"phone\":\"voluptatem\",\"nationalId\":\"quibusdam\",\"addressLine1\":\"ex\",\"addressLine2\":\"nisi\",\"city\":\"provident\",\"postalCode\":3,\"province\":\"quia\",\"country\":\"quod\",\"dateOfBirth\":\"occaecati\",\"gender\":\"ea\",\"isVip\":true,\"disabled\":true,\"notes\":\"voluptatem\",\"account\":[\"officia\"]}"
+                            "raw": "{\"salutation\":\"MR\",\"firstName\":\"Joe\",\"lastName\":\"Root\",\"occupation\":\"Athlete\",\"employerName\":\"England Cricket Board (ECB)\",\"email\":\"joe.root@ecb.com.uk\",\"phone\":\"+44 20 7123 4567\",\"nationalId\":\"QQ123456B\",\"addressLine1\":\"5931 Derick Grove\",\"addressLine2\":\"Suite 751\",\"city\":\"London\",\"postalCode\":\"GU16 7HF\",\"province\":\"London\",\"country\":\"England\",\"dateOfBirth\":\"1990-12-30\",\"gender\":\"MALE\",\"isVip\":true,\"disabled\":false,\"notes\":\"Loerum ipsum\",\"account\":[\"dolores\"]}"
                         },
                         "description": "Creates a new customer along with an optional account and debit card details."
                     },

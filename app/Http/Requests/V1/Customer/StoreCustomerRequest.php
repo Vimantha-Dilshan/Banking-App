@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\V1\Customer;
 
+use App\Models\Customer;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -47,7 +48,7 @@ class StoreCustomerRequest extends FormRequest
             'nationalId' => [
                 'required',
                 'string',
-                'unique:customers,national_id',
+                Rule::unique(Customer::class, 'national_id'),
             ],
             'addressLine1' => [
                 'required',

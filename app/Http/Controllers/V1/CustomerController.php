@@ -61,36 +61,35 @@ class CustomerController extends Controller
      *
      * Creates a new customer along with an optional account and debit card details.
      *
-     * @bodyParam salutation string nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".
-     * @bodyParam firstName string required The first name of the customer. Max 255 characters.
-     * @bodyParam lastName string required The last name of the customer. Max 255 characters.
-     * @bodyParam occupation string nullable The occupation of the customer. Max 255 characters.
-     * @bodyParam employerName string nullable The employer name of the customer. Max 255 characters.
-     * @bodyParam email string required The email address of the customer. Must be unique.
-     * @bodyParam phone string nullable The phone number of the customer. Max 20 characters.
-     * @bodyParam nationalId string required The national ID of the customer. Must be unique.
-     * @bodyParam addressLine1 string required The primary address line. Max 255 characters.
-     * @bodyParam addressLine2 string nullable The secondary address line. Max 255 characters.
-     * @bodyParam city string required The city of the customer. Max 255 characters.
-     * @bodyParam postalCode integer nullable The postal code of the customer.
-     * @bodyParam province string nullable The province/state of the customer. Max 255 characters.
-     * @bodyParam country string nullable The country of the customer. Max 255 characters.
-     * @bodyParam dateOfBirth date required The date of birth of the customer (YYYY-MM-DD).
-     * @bodyParam gender string required The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".
-     * @bodyParam isVip boolean nullable Whether the customer is a VIP. Defaults to false.
-     * @bodyParam disabled boolean nullable Whether the customer is disabled.
-     * @bodyParam notes string nullable Additional notes about the customer.
+     * @bodyParam salutation string nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV". Example: MR
+     * @bodyParam firstName string required The first name of the customer. Max 255 characters. Example: Joe
+     * @bodyParam lastName string required The last name of the customer. Max 255 characters. Example: Root
+     * @bodyParam occupation string nullable The occupation of the customer. Max 255 characters. Example: Athlete
+     * @bodyParam employerName string nullable The employer name of the customer. Max 255 characters. Example: England Cricket Board (ECB)
+     * @bodyParam email string required The email address of the customer. Must be unique. Example: joe.root@ecb.com.uk
+     * @bodyParam phone string nullable The phone number of the customer. Max 20 characters. Example: +44 20 7123 4567
+     * @bodyParam nationalId string required The national ID of the customer. Must be unique. Example: QQ123456B
+     * @bodyParam addressLine1 string required The primary address line. Max 255 characters. Example: 5931 Derick Grove
+     * @bodyParam addressLine2 string nullable The secondary address line. Max 255 characters. Example: Suite 751
+     * @bodyParam city string required The city of the customer. Max 255 characters. Example: London
+     * @bodyParam postalCode string nullable The postal code of the customer. Example: GU16 7HF
+     * @bodyParam province string nullable The province/state of the customer. Max 255 characters. Example: London
+     * @bodyParam country string nullable The country of the customer. Max 255 characters. Example: England
+     * @bodyParam dateOfBirth date required The date of birth of the customer (YYYY-MM-DD). Example: 1990-12-30
+     * @bodyParam gender string required The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER". Example: MALE
+     * @bodyParam isVip boolean nullable Whether the customer is a VIP. Defaults to false. Example: true
+     * @bodyParam disabled boolean nullable Whether the customer is disabled. Example: false
+     * @bodyParam notes string nullable Additional notes about the customer. Example: Loerum ipsum
      * @bodyParam account array nullable Account details if the customer has an associated account.
-     * @bodyParam account.accountType integer required The type of account.
-     * @bodyParam account.accountNumber string required The unique account number.
-     * @bodyParam account.balance float required The initial balance of the account.
-     * @bodyParam account.branch string nullable The branch associated with the account.
-     * @bodyParam account.start_date date The start date of the account (defaults to today).
-     * @bodyParam account.notes string nullable Additional notes about the account.
+     * @bodyParam account.accountType integer required The type of account. Example: 66
+     * @bodyParam account.accountNumber string required The unique account number. Example: 101099518837
+     * @bodyParam account.balance float required The initial balance of the account. Example: 10000
+     * @bodyParam account.branch string nullable The branch associated with the account. Example: North London
+     * @bodyParam account.notes string nullable Additional notes about the account. Example: Loerum ipsum
      * @bodyParam account.debitCard array nullable Debit card details if the customer has an associated card.
-     * @bodyParam account.debitCard.type string required The type of debit card.
-     * @bodyParam account.debitCard.cardholderName string required The name of the cardholder.
-     * @bodyParam account.debitCard.notes string nullable Additional notes about the debit card.
+     * @bodyParam account.debitCard.type string required The type of debit card. Example: AMEX
+     * @bodyParam account.debitCard.cardholderName string required The name of the cardholder. Example: JOE ROOT
+     * @bodyParam account.debitCard.notes string nullable Additional notes about the debit card. Example: Loerum ipsum
      *
      * @responseFile storage/response/customer-management/create-customer-with-account.json
      *

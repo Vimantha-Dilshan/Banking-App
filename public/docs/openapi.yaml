@@ -122,7 +122,7 @@ paths:
                 customerId:
                   type: integer
                   description: 'The ID of the customer for whom the card is being created.'
-                  example: 9
+                  example: 1234
                   nullable: false
                 cardDetails:
                   type: object
@@ -143,22 +143,22 @@ paths:
                     cardType:
                       type: string
                       description: 'The type of the card, can be "VISA", "MASTERCARD", etc.'
-                      example: facilis
+                      example: MASTERCARD
                       nullable: false
                     cardNumber:
                       type: string
                       description: 'The card number (valid card number).'
-                      example: incidunt
+                      example: '4916659541180962'
                       nullable: false
                     cardHolderName:
                       type: string
                       description: 'nullable The name of the cardholder.'
-                      example: doloribus
+                      example: 'JOE ROOT'
                       nullable: true
                     notes:
                       type: string
                       description: 'nullable Additional notes about the card.'
-                      example: sunt
+                      example: 'Loerum Ipsum'
                       nullable: true
                 accountDetails:
                   type: object
@@ -169,7 +169,7 @@ paths:
                     accountId:
                       type: integer
                       description: 'The account ID to link the card to.'
-                      example: 12
+                      example: 1234
                       nullable: false
               required:
                 - customerId
@@ -587,7 +587,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - loans
+                    - fixedDeposits
                   items:
                     type: string
                     enum:
@@ -602,7 +602,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the customer.'
-        example: 13
+        example: 1
         required: true
         schema:
           type: integer
@@ -725,82 +725,82 @@ paths:
                 salutation:
                   type: string
                   description: 'nullable The salutation of the customer. Must be one of "MR", "MISS", "MRS", "REV".'
-                  example: quisquam
+                  example: MR
                   nullable: true
                 firstName:
                   type: string
                   description: 'The first name of the customer. Max 255 characters.'
-                  example: reprehenderit
+                  example: Joe
                   nullable: false
                 lastName:
                   type: string
                   description: 'The last name of the customer. Max 255 characters.'
-                  example: voluptates
+                  example: Root
                   nullable: false
                 occupation:
                   type: string
                   description: 'nullable The occupation of the customer. Max 255 characters.'
-                  example: architecto
+                  example: Athlete
                   nullable: true
                 employerName:
                   type: string
                   description: 'nullable The employer name of the customer. Max 255 characters.'
-                  example: quia
+                  example: 'England Cricket Board (ECB)'
                   nullable: true
                 email:
                   type: string
                   description: 'The email address of the customer. Must be unique.'
-                  example: destin.dare@example.org
+                  example: joe.root@ecb.com.uk
                   nullable: false
                 phone:
                   type: string
                   description: 'nullable The phone number of the customer. Max 20 characters.'
-                  example: voluptatem
+                  example: '+44 20 7123 4567'
                   nullable: true
                 nationalId:
                   type: string
                   description: 'The national ID of the customer. Must be unique.'
-                  example: quibusdam
+                  example: QQ123456B
                   nullable: false
                 addressLine1:
                   type: string
                   description: 'The primary address line. Max 255 characters.'
-                  example: ex
+                  example: '5931 Derick Grove'
                   nullable: false
                 addressLine2:
                   type: string
                   description: 'nullable The secondary address line. Max 255 characters.'
-                  example: nisi
+                  example: 'Suite 751'
                   nullable: true
                 city:
                   type: string
                   description: 'The city of the customer. Max 255 characters.'
-                  example: provident
+                  example: London
                   nullable: false
                 postalCode:
-                  type: integer
+                  type: string
                   description: 'nullable The postal code of the customer.'
-                  example: 3
+                  example: 'GU16 7HF'
                   nullable: true
                 province:
                   type: string
                   description: 'nullable The province/state of the customer. Max 255 characters.'
-                  example: quia
+                  example: London
                   nullable: true
                 country:
                   type: string
                   description: 'nullable The country of the customer. Max 255 characters.'
-                  example: quod
+                  example: England
                   nullable: true
                 dateOfBirth:
                   type: date
                   description: 'The date of birth of the customer (YYYY-MM-DD).'
-                  example: occaecati
+                  example: '1990-12-30'
                   nullable: false
                 gender:
                   type: string
                   description: 'The gender of the customer. Must be one of "MALE", "FEMALE", "OTHER".'
-                  example: ea
+                  example: MALE
                   nullable: false
                 isVip:
                   type: boolean
@@ -810,18 +810,18 @@ paths:
                 disabled:
                   type: boolean
                   description: 'nullable Whether the customer is disabled.'
-                  example: true
+                  example: false
                   nullable: true
                 notes:
                   type: string
                   description: 'nullable Additional notes about the customer.'
-                  example: voluptatem
+                  example: 'Loerum ipsum'
                   nullable: true
                 account:
                   type: array
                   description: 'nullable Account details if the customer has an associated account.'
                   example:
-                    - officia
+                    - dolores
                   items:
                     type: string
               required:
