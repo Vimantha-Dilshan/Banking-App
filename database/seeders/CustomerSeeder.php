@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\AccountType;
-use App\Models\CreditCard;
 use App\Models\Customer;
 use App\Models\CustomerAccount;
-use App\Models\DebitCard;
+use App\Models\CustomerCreditCard;
+use App\Models\CustomerDebitCard;
 use App\Models\FixedDeposit;
 use App\Models\Loan;
 use Carbon\Carbon;
@@ -48,18 +48,18 @@ class CustomerSeeder extends Seeder
                 $customer->creditCards()->create([
                     'card_number' => fake()->creditCardNumber,
                     'card_type' => fake()->randomElement([
-                        CreditCard::CARD_TYPE_VISA,
-                        CreditCard::CARD_TYPE_MASTERCARD,
-                        CreditCard::CARD_TYPE_AMEX,
-                        CreditCard::CARD_TYPE_DISCOVER,
-                        CreditCard::CARD_TYPE_MAESTRO,
-                        CreditCard::CARD_TYPE_JCB,
+                        CustomerCreditCard::CARD_TYPE_VISA,
+                        CustomerCreditCard::CARD_TYPE_MASTERCARD,
+                        CustomerCreditCard::CARD_TYPE_AMEX,
+                        CustomerCreditCard::CARD_TYPE_DISCOVER,
+                        CustomerCreditCard::CARD_TYPE_MAESTRO,
+                        CustomerCreditCard::CARD_TYPE_JCB,
                     ]),
                     'status' => fake()->randomElement([
-                        CreditCard::STATUS_ACTIVE,
-                        CreditCard::STATUS_INACTIVE,
-                        CreditCard::STATUS_SUSPENDED,
-                        CreditCard::STATUS_CLOSED,
+                        CustomerCreditCard::STATUS_ACTIVE,
+                        CustomerCreditCard::STATUS_INACTIVE,
+                        CustomerCreditCard::STATUS_SUSPENDED,
+                        CustomerCreditCard::STATUS_CLOSED,
                     ]),
                     'credit_limit' => fake()->randomFloat(2, 50000, 5000000),
                     'available_credit' => fake()->randomFloat(2, 0, 50000),
@@ -74,18 +74,18 @@ class CustomerSeeder extends Seeder
                     'linked_account' => $accountNumber,
                     'card_number' => fake()->creditCardNumber,
                     'card_type' => fake()->randomElement([
-                        DebitCard::CARD_TYPE_VISA,
-                        DebitCard::CARD_TYPE_MASTERCARD,
-                        DebitCard::CARD_TYPE_AMEX,
-                        DebitCard::CARD_TYPE_DISCOVER,
-                        DebitCard::CARD_TYPE_MAESTRO,
-                        DebitCard::CARD_TYPE_JCB,
+                        CustomerDebitCard::CARD_TYPE_VISA,
+                        CustomerDebitCard::CARD_TYPE_MASTERCARD,
+                        CustomerDebitCard::CARD_TYPE_AMEX,
+                        CustomerDebitCard::CARD_TYPE_DISCOVER,
+                        CustomerDebitCard::CARD_TYPE_MAESTRO,
+                        CustomerDebitCard::CARD_TYPE_JCB,
                     ]),
                     'status' => fake()->randomElement([
-                        DebitCard::STATUS_ACTIVE,
-                        DebitCard::STATUS_INACTIVE,
-                        DebitCard::STATUS_SUSPENDED,
-                        DebitCard::STATUS_CLOSED,
+                        CustomerDebitCard::STATUS_ACTIVE,
+                        CustomerDebitCard::STATUS_INACTIVE,
+                        CustomerDebitCard::STATUS_SUSPENDED,
+                        CustomerDebitCard::STATUS_CLOSED,
                     ]),
                     'expiry_date' => fake()->date('m/Y', 'now +5 years'),
                     'cardholder_name' => $cardholderName,

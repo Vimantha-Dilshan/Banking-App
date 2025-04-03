@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('credit_cards', function (Blueprint $table) {
+        Schema::create('customer_credit_cards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->string('card_number')->unique();

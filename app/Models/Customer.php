@@ -33,12 +33,12 @@ class Customer extends Model
 
     public function creditCards()
     {
-        return $this->hasMany(CreditCard::class);
+        return $this->hasMany(CustomerCreditCard::class);
     }
 
     public function debitCards()
     {
-        return $this->hasMany(DebitCard::class);
+        return $this->hasMany(CustomerDebitCard::class);
     }
 
     public function loans()

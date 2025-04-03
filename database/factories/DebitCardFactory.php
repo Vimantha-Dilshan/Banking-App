@@ -3,12 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Customer;
-use App\Models\DebitCard;
+use App\Models\CustomerDebitCard;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DebitCardFactory extends Factory
 {
-    protected $model = DebitCard::class;
+    protected $model = CustomerDebitCard::class;
 
     public function definition()
     {
@@ -19,18 +19,18 @@ class DebitCardFactory extends Factory
             'linked_account' => fake()->unique()->numerify('101#########'),
             'card_number' => fake()->creditCardNumber,
             'card_type' => fake()->randomElement([
-                DebitCard::CARD_TYPE_VISA,
-                DebitCard::CARD_TYPE_MASTERCARD,
-                DebitCard::CARD_TYPE_AMEX,
-                DebitCard::CARD_TYPE_DISCOVER,
-                DebitCard::CARD_TYPE_MAESTRO,
-                DebitCard::CARD_TYPE_JCB,
+                CustomerDebitCard::CARD_TYPE_VISA,
+                CustomerDebitCard::CARD_TYPE_MASTERCARD,
+                CustomerDebitCard::CARD_TYPE_AMEX,
+                CustomerDebitCard::CARD_TYPE_DISCOVER,
+                CustomerDebitCard::CARD_TYPE_MAESTRO,
+                CustomerDebitCard::CARD_TYPE_JCB,
             ]),
             'status' => fake()->randomElement([
-                DebitCard::STATUS_ACTIVE,
-                DebitCard::STATUS_INACTIVE,
-                DebitCard::STATUS_SUSPENDED,
-                DebitCard::STATUS_CLOSED,
+                CustomerDebitCard::STATUS_ACTIVE,
+                CustomerDebitCard::STATUS_INACTIVE,
+                CustomerDebitCard::STATUS_SUSPENDED,
+                CustomerDebitCard::STATUS_CLOSED,
             ]),
             'expiry_date' => fake()->date('m/Y', 'now +5 years'),
             'cardholder_name' => strtoupper($customer->first_name.' '.$customer->last_name),

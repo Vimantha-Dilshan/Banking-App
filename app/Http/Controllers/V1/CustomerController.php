@@ -9,7 +9,7 @@ use App\Http\Resources\V1\CustomerManagement\CreateCustomerResource;
 use App\Http\Resources\V1\CustomerManagement\GetCustomerResource;
 use App\Models\Customer;
 use App\Models\CustomerAccount;
-use App\Models\DebitCard;
+use App\Models\CustomerDebitCard;
 
 /**
  * @group Customer Management
@@ -136,11 +136,11 @@ class CustomerController extends Controller
             ]);
 
             if (isset($request->account['debitCard'])) {
-                DebitCard::create([
+                CustomerDebitCard::create([
                     'customer_id' => $customer->id,
                     'linked_account' => $request->account['accountNumber'],
                     'card_type' => $request->account['debitCard']['type'],
-                    'status' => DebitCard::STATUS_ACTIVE,
+                    'status' => CustomerDebitCard::STATUS_ACTIVE,
                     'expiry_date' => $request->account['debitCard']['expiryDate'],
                     'cardholder_name' => $request->account['debitCard']['cardholderName'],
                     'notes' => $request->account['debitCard']['notes'] ?? null,

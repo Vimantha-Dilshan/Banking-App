@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('debit_cards', function (Blueprint $table) {
+        Schema::create('customer_debit_cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained();
             $table->string('linked_account');

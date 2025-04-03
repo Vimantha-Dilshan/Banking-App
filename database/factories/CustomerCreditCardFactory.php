@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\CreditCard;
 use App\Models\Customer;
+use App\Models\CustomerCreditCard;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CreditCardFactory extends Factory
+class CustomerCreditCardFactory extends Factory
 {
-    protected $model = CreditCard::class;
+    protected $model = CustomerCreditCard::class;
 
     public function definition()
     {
@@ -18,18 +18,18 @@ class CreditCardFactory extends Factory
             'customer_id' => $customer->id,
             'card_number' => fake()->creditCardNumber,
             'card_type' => fake()->randomElement([
-                CreditCard::CARD_TYPE_VISA,
-                CreditCard::CARD_TYPE_MASTERCARD,
-                CreditCard::CARD_TYPE_AMEX,
-                CreditCard::CARD_TYPE_DISCOVER,
-                CreditCard::CARD_TYPE_MAESTRO,
-                CreditCard::CARD_TYPE_JCB,
+                CustomerCreditCard::CARD_TYPE_VISA,
+                CustomerCreditCard::CARD_TYPE_MASTERCARD,
+                CustomerCreditCard::CARD_TYPE_AMEX,
+                CustomerCreditCard::CARD_TYPE_DISCOVER,
+                CustomerCreditCard::CARD_TYPE_MAESTRO,
+                CustomerCreditCard::CARD_TYPE_JCB,
             ]),
             'status' => fake()->randomElement([
-                CreditCard::STATUS_ACTIVE,
-                CreditCard::STATUS_INACTIVE,
-                CreditCard::STATUS_SUSPENDED,
-                CreditCard::STATUS_CLOSED,
+                CustomerCreditCard::STATUS_ACTIVE,
+                CustomerCreditCard::STATUS_INACTIVE,
+                CustomerCreditCard::STATUS_SUSPENDED,
+                CustomerCreditCard::STATUS_CLOSED,
             ]),
             'credit_limit' => fake()->randomFloat(2, 50000, 5000000),
             'available_credit' => fake()->randomFloat(2, 0, 50000),

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
-class DebitCard extends Model
+class CustomerDebitCard extends Model
 {
     use HasFactory, Searchable;
 

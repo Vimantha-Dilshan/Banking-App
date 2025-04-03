@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\CreditCard;
+use App\Models\CustomerCreditCard;
 use Illuminate\Database\Seeder;
 
 class CreditCardSeeder extends Seeder
 {
     public function run(): void
     {
-        CreditCard::factory()->count(20)->create();
+        CustomerCreditCard::factory()->count(20)->create();
     }
 }
