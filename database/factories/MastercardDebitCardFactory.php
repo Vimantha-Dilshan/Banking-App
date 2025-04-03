@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\VisaCreditCard;
+use App\Models\MastercardDebitCard;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class VisaCreditCardFactory extends Factory
+class MastercardDebitCardFactory extends Factory
 {
-    protected $model = VisaCreditCard::class;
+    protected $model = MastercardDebitCard::class;
 
     public function definition(): array
     {
@@ -16,10 +16,10 @@ class VisaCreditCardFactory extends Factory
             'expiry_date' => fake()->creditCardExpirationDate,
             'cvv' => fake()->randomNumber(3, true),
             'status' => fake()->randomElement([
-                VisaCreditCard::STATUS_AVAILABLE,
-                VisaCreditCard::STATUS_ALLOCATED,
-                VisaCreditCard::STATUS_EXPIRED,
-                VisaCreditCard::STATUS_BLOCKED,
+                MastercardDebitCard::STATUS_AVAILABLE,
+                MastercardDebitCard::STATUS_ALLOCATED,
+                MastercardDebitCard::STATUS_EXPIRED,
+                MastercardDebitCard::STATUS_BLOCKED,
             ]),
         ];
     }

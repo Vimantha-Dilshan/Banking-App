@@ -14,7 +14,7 @@ class VisaDebitCardFactory extends Factory
         return [
             'card_number' => fake()->creditCardNumber,
             'expiry_date' => fake()->creditCardExpirationDate,
-            'cvv' => fake()->numerify('###'),
+            'cvv' => fake()->randomNumber(3, true),
             'status' => fake()->randomElement([
                 VisaDebitCard::STATUS_AVAILABLE,
                 VisaDebitCard::STATUS_ALLOCATED,

@@ -23,4 +23,9 @@ class VisaDebitCard extends Model
     public const STATUS_EXPIRED = 'EXPIRED';
 
     public const STATUS_BLOCKED = 'BLOCKED';
+
+    public function scopeAvailable($query)
+    {
+        return $query->where('status', self::STATUS_AVAILABLE);
+    }
 }
