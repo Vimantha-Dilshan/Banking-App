@@ -89,7 +89,6 @@ class CustomerController extends Controller
      * @bodyParam account.notes string nullable Additional notes about the account.
      * @bodyParam account.debitCard array nullable Debit card details if the customer has an associated card.
      * @bodyParam account.debitCard.type string required The type of debit card.
-     * @bodyParam account.debitCard.expiryDate string required The expiry date of the card (YYYY-MM).
      * @bodyParam account.debitCard.cardholderName string required The name of the cardholder.
      * @bodyParam account.debitCard.notes string nullable Additional notes about the debit card.
      *
@@ -141,7 +140,7 @@ class CustomerController extends Controller
                     'linked_account' => $request->account['accountNumber'],
                     'card_type' => $request->account['debitCard']['type'],
                     'status' => CustomerDebitCard::STATUS_ACTIVE,
-                    'expiry_date' => $request->account['debitCard']['expiryDate'],
+                    'expiry_date' => now()->addYears(4)->format('m/Y'),
                     'cardholder_name' => $request->account['debitCard']['cardholderName'],
                     'notes' => $request->account['debitCard']['notes'] ?? null,
                 ]);

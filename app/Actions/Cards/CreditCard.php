@@ -13,17 +13,18 @@ class CreditCard
 
     public function handle(Request $request, Closure $next)
     {
-        if (! $request->creditCard) {
+        if (! $request->cardDetails['creditCard']) {
             return $next($request);
         }
 
         if (! $this->checkCardAvailability(
-            $request->cardNumber,
-            $request->cardType,
+            $request->cardDetails['cardNumber'],
+            $request->cardDetails['cardType'],
             true,
+            false,
         )) {
             return response()->json(
-                ['message' => $request->cardType.' card number '.$request->cardNumber.' is not available.'],
+                ['message' => $request->cardDetails['cardType'].' card number '.$request->cardDetails['cardNumber'].' is not available.'],
                 Response::HTTP_UNPROCESSABLE_ENTITY,
             );
         }
