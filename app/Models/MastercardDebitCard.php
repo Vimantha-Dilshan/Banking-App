@@ -17,11 +17,8 @@ class MastercardDebitCard extends Model
     ];
 
     public const STATUS_AVAILABLE = 'AVAILABLE';
-
     public const STATUS_ALLOCATED = 'ALLOCATED';
-
     public const STATUS_EXPIRED = 'EXPIRED';
-
     public const STATUS_BLOCKED = 'BLOCKED';
 
     public function scopeAvailable($query)

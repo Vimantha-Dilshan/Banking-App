@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             FeeTypeSeeder::class,
             BranchSeeder::class,
             StaffMemberSeeder::class,
+            VaultSeeder::class,
+            VaultTransactionSeeder::class,
         ]);
     }
 }
