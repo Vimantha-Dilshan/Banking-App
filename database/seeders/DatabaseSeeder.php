@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             CardTypeSeeder::class,
             CustomerAccountTransactionSeeder::class,
             FeeTypeSeeder::class,
+            BranchSeeder::class,
+            StaffMemberSeeder::class,
         ]);
     }
 }

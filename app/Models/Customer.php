@@ -60,4 +60,11 @@ class Customer extends Model
     {
         return $this->belongsToMany(AccountType::class, 'customer_accounts', 'customer_id', 'account_id');
     }
+
+    public function primaryAccount()
+    {
+        return $this->hasOne(CustomerAccount::class, 'customer_id')
+            ->where('status', CustomerAccount::STATUS_ACTIVE)
+            ->where('primary', true);
+    }
 }
