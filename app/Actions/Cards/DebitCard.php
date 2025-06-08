@@ -8,6 +8,8 @@ use App\Models\Customer;
 use App\Models\CustomerDebitCard;
 use App\Models\DebitCardBilling;
 use App\Models\FeeType;
+use App\Notifications\DebitCardAssigned;
+use App\Notifications\DebitCardPasscodeInform;
 use App\Traits\CardTrait;
 use App\Traits\CustomerPaymentTrait;
 use Closure;
@@ -53,7 +55,8 @@ class DebitCard
 
         $customerDebitCard = $this->storeDebitCard($customer, $request);
         $this->updateCardBank($cardBank);
-        $this->storeDebitCardbilling($customer);
+        $this->storeDebitCardBilling($customer);
+        $this->sendEmailNotification($customer);
 
         return DebitCardResource::make($customerDebitCard);
     }
@@ -90,7 +93,7 @@ class DebitCard
         ]);
     }
 
-    private function storeDebitCardbilling(Customer $customer)
+    private function storeDebitCardBilling(Customer $customer)
     {
         DebitCardBilling::create([
             'card_id' => $customer->debitCard->id,
@@ -99,5 +102,11 @@ class DebitCard
             'last_billed_month' => now()->month,
             'billing_status' => DebitCardBilling::BILLING_STATUS_SUCCESS,
         ]);
+    }
+
+    private function sendEmailNotification(Customer $customer)
+    {
+        $customer->notify(new DebitCardAssigned());
+        $customer->notify(new DebitCardPasscodeInform(fake()->numerify('######')));
     }
 }

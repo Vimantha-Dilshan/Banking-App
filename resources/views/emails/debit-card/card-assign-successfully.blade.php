@@ -115,7 +115,7 @@
             <div class="branding-text">Your Access to Convenient Banking</div>
         </div>
         <div class="body">
-            <p>Hello <strong>{{ $user->name }}</strong>,</p>
+            <p>Hello <strong>{{ $customer->first_name }} {{ $customer->last_name }}</strong>,</p>
 
             <p>We are pleased to inform you that your debit card has been successfully assigned to your X-Banking
                 account.</p>
