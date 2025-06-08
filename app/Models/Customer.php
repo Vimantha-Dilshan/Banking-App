@@ -31,14 +31,14 @@ class Customer extends Model
 
     public const GENDER_OTHER = 'OTHER';
 
-    public function creditCards()
+    public function creditCard()
     {
-        return $this->hasMany(CustomerCreditCard::class);
+        return $this->hasOne(CustomerCreditCard::class);
     }
 
-    public function debitCards()
+    public function debitCard()
     {
-        return $this->hasMany(CustomerDebitCard::class);
+        return $this->hasOne(CustomerDebitCard::class);
     }
 
     public function loans()

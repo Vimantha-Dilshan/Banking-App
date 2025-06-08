@@ -32,8 +32,8 @@ class BranchFactory extends Factory
                 Branch::STATUS_INACTIVE,
                 Branch::STATUS_CLOSED
             ]),
-            'latitude' => fake()->optional()->latitude(),
-            'longitude' => fake()->optional()->longitude(),
+            'latitude' => fake()->latitude(),
+            'longitude' => fake()->longitude(),
         ];
     }
 }

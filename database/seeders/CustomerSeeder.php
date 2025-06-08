@@ -45,7 +45,7 @@ class CustomerSeeder extends Seeder
                     'notes' => fake()->text(),
                 ]);
 
-                $customer->creditCards()->create([
+                $customer->creditCard()->create([
                     'card_number' => fake()->creditCardNumber,
                     'card_type' => fake()->randomElement([
                         CustomerCreditCard::CARD_TYPE_VISA,
@@ -70,7 +70,7 @@ class CustomerSeeder extends Seeder
                     'notes' => fake()->optional()->sentence(),
                 ]);
 
-                $customer->debitCards()->create([
+                $customer->debitCard()->create([
                     'linked_account' => $accountNumber,
                     'card_number' => fake()->creditCardNumber,
                     'card_type' => fake()->randomElement([

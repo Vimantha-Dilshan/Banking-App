@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\CustomerAccount;
 use App\Models\CustomerAccountTransaction;
 use App\Models\CustomerDebitCard;
+use App\Models\DebitCardBilling;
 use App\Models\FeeType;
 use App\Traits\CardTrait;
 use App\Traits\CustomerPaymentTrait;
@@ -42,13 +43,11 @@ class DebitCard
         $customer = Customer::find($request->customerId);
         $transactionAmount = $this->getDebitCardAnnualCharges($request->cardDetails['cardType']);
 
-        $makePayment = $this->makePayment(
+        if (! $this->makePayment(
             $customer->primaryAccount,
             $transactionAmount,
             'Debit Card Annual Charge'.now()->year
-        );
-
-        if (! $makePayment) {
+        )) {
             return response()->json(
                 ['message' => 'The customer\'s primary account is not active or didn\'t have sufficient funds.'],
                 Response::HTTP_UNPROCESSABLE_ENTITY,
@@ -57,8 +56,7 @@ class DebitCard
 
         $customerDebitCard = $this->storeDebitCard($customer,$request);
         $this->updateCardBank($cardBank);
-
-        // TODO: Setup the annual billing charge
+        $this->storeDebitCardbilling($customer);
 
         return DebitCardResource::make($customerDebitCard);
     }
@@ -91,6 +89,17 @@ class DebitCard
     {
         $cardBank->update([
             'status' => 'ALLOCATED',
+        ]);
+    }
+
+    private function storeDebitCardbilling(Customer $customer)
+    {
+        DebitCardBilling::create([
+            'card_id' => $customer->debitCard->id,
+            'customer' => $customer->id,
+            'last_billed_year' => now()->year,
+            'last_billed_month' => now()->month,
+            'billing_status' => DebitCardBilling::BILLING_STATUS_SUCCESS,
         ]);
     }
 }
