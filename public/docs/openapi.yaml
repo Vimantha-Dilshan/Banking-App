@@ -124,6 +124,11 @@ paths:
                   description: 'The ID of the customer for whom the card is being created.'
                   example: 1234
                   nullable: false
+                branchId:
+                  type: integer
+                  description: 'The ID of the branch.'
+                  example: 1234
+                  nullable: false
                 cardDetails:
                   type: object
                   description: 'The details of the card to be stored.'
@@ -173,6 +178,7 @@ paths:
                       nullable: false
               required:
                 - customerId
+                - branchId
                 - cardDetails
                 - accountDetails
   '/api/v1/customer-management/customer/{id}':
@@ -587,7 +593,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - fixedDeposits
+                    - loans
                   items:
                     type: string
                     enum:
@@ -821,7 +827,7 @@ paths:
                   type: array
                   description: 'nullable Account details if the customer has an associated account.'
                   example:
-                    - dolores
+                    - esse
                   items:
                     type: string
               required:

@@ -69,6 +69,16 @@ class StoreCardRequest extends FormRequest
         ];
     }
 
+    protected function prepareForValidation()
+    {
+        // TODO: Detect the staff memeber id from authentication
+        $staffMemberId = 1;
+
+        $this->merge([
+            'staffId' => $staffMemberId,
+        ]);
+    }
+
     public function after(): array
     {
         return [

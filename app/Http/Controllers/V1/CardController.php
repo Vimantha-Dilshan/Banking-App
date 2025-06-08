@@ -22,6 +22,7 @@ class CardController extends Controller
      * Optionally, you can specify debit card and credit card types, along with card details.
      *
      * @bodyParam customerId integer required The ID of the customer for whom the card is being created. Example: 1234
+     * @bodyParam branchId integer required The ID of the branch. Example: 1234
      * @bodyParam cardDetails object required The details of the card to be stored.
      * @bodyParam cardDetails.debitCard boolean required Indicates whether the card is a debit card (true/false). Example: true
      * @bodyParam cardDetails.creditCard boolean required Indicates whether the card is a credit card (true/false). Example: true

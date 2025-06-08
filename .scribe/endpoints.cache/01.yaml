@@ -51,7 +51,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - fixedDeposits
+          - loans
         type: 'string[]'
         enumValues:
           - creditCards
@@ -64,7 +64,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       include:
-        - fixedDeposits
+        - loans
     fileParameters: []
     responses:
       -
@@ -398,7 +398,7 @@ endpoints:
         description: 'nullable Account details if the customer has an associated account.'
         required: false
         example:
-          - dolores
+          - esse
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -459,7 +459,7 @@ endpoints:
         description: 'nullable Debit card details if the customer has an associated card.'
         required: false
         example:
-          - harum
+          - commodi
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -516,7 +516,7 @@ endpoints:
       disabled: false
       notes: 'Loerum ipsum'
       account:
-        - dolores
+        - esse
     fileParameters: []
     responses:
       -

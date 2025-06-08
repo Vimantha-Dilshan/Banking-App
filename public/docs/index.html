@@ -407,7 +407,7 @@
 
         </div>
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
-            Last updated: April 3, 2025
+            Last updated: June 8, 2025
         </div>
 
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
@@ -560,6 +560,33 @@ Optionally, you can specify debit card and credit card types, along with card de
                                     </div>
                 <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
             <p>The ID of the customer for whom the card is being created.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        1234
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">branchId</div>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>The ID of the branch.</p>
         </div>
                                             <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
@@ -939,6 +966,7 @@ Optionally, you can specify debit card and credit card types, along with card de
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
     "customerId": 1234,
+    "branchId": 1234,
     "cardDetails": {
         "debitCard": true,
         "creditCard": true,
@@ -1046,6 +1074,7 @@ You can check the Dev Tools console for debugging information.</p>
     --header "Accept: application/json" \
     --data "{
     \"customerId\": 1234,
+    \"branchId\": 1234,
     \"cardDetails\": {
         \"debitCard\": true,
         \"creditCard\": true,
@@ -1076,6 +1105,7 @@ const headers = {
 
 let body = {
     "customerId": 1234,
+    "branchId": 1234,
     "cardDetails": {
         "debitCard": true,
         "creditCard": true,
@@ -1350,7 +1380,7 @@ fetch(url, {
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        [&quot;fixedDeposits&quot;]
+                        [&quot;loans&quot;]
                     </div>
                 </div>
             </div>
@@ -1548,7 +1578,7 @@ fetch(url, {
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
     "include": [
-        "fixedDeposits"
+        "loans"
     ]
 }</div>
                             </div>
@@ -1646,7 +1676,7 @@ You can check the Dev Tools console for debugging information.</p>
     --header "Accept: application/json" \
     --data "{
     \"include\": [
-        \"fixedDeposits\"
+        \"loans\"
     ]
 }"
 </code></pre>                                        </div>
@@ -1673,7 +1703,7 @@ const headers = {
 
 let body = {
     "include": [
-        "fixedDeposits"
+        "loans"
     ]
 };
 
@@ -2944,7 +2974,7 @@ You can check the Dev Tools console for debugging information.</p>
     \"disabled\": false,
     \"notes\": \"Loerum ipsum\",
     \"account\": [
-        \"dolores\"
+        \"esse\"
     ]
 }"
 </code></pre>                                        </div>
@@ -2984,7 +3014,7 @@ let body = {
     "disabled": false,
     "notes": "Loerum ipsum",
     "account": [
-        "dolores"
+        "esse"
     ]
 };
 

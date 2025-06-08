@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Banking-App",
-        "_postman_id": "f1193cb8-f55a-4cd7-88cb-b5d374e704b1",
+        "_postman_id": "968ebf96-1e24-463c-a572-bd7f33e96dca",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"customerId\":1234,\"cardDetails\":{\"debitCard\":true,\"creditCard\":true,\"cardType\":\"MASTERCARD\",\"cardNumber\":\"4916659541180962\",\"cardHolderName\":\"JOE ROOT\",\"notes\":\"Loerum Ipsum\"},\"accountDetails\":{\"accountId\":1234}}"
+                            "raw": "{\"customerId\":1234,\"branchId\":1234,\"cardDetails\":{\"debitCard\":true,\"creditCard\":true,\"cardType\":\"MASTERCARD\",\"cardNumber\":\"4916659541180962\",\"cardHolderName\":\"JOE ROOT\",\"notes\":\"Loerum Ipsum\"},\"accountDetails\":{\"accountId\":1234}}"
                         },
                         "description": "Creates a new debit or credit card along with customer and account details.\nOptionally, you can specify debit card and credit card types, along with card details."
                     },
@@ -109,7 +109,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"include\":[\"fixedDeposits\"]}"
+                            "raw": "{\"include\":[\"loans\"]}"
                         },
                         "description": "Retrieve a specific customer and related information based on request parameters."
                     },
@@ -150,7 +150,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"salutation\":\"MR\",\"firstName\":\"Joe\",\"lastName\":\"Root\",\"occupation\":\"Athlete\",\"employerName\":\"England Cricket Board (ECB)\",\"email\":\"joe.root@ecb.com.uk\",\"phone\":\"+44 20 7123 4567\",\"nationalId\":\"QQ123456B\",\"addressLine1\":\"5931 Derick Grove\",\"addressLine2\":\"Suite 751\",\"city\":\"London\",\"postalCode\":\"GU16 7HF\",\"province\":\"London\",\"country\":\"England\",\"dateOfBirth\":\"1990-12-30\",\"gender\":\"MALE\",\"isVip\":true,\"disabled\":false,\"notes\":\"Loerum ipsum\",\"account\":[\"dolores\"]}"
+                            "raw": "{\"salutation\":\"MR\",\"firstName\":\"Joe\",\"lastName\":\"Root\",\"occupation\":\"Athlete\",\"employerName\":\"England Cricket Board (ECB)\",\"email\":\"joe.root@ecb.com.uk\",\"phone\":\"+44 20 7123 4567\",\"nationalId\":\"QQ123456B\",\"addressLine1\":\"5931 Derick Grove\",\"addressLine2\":\"Suite 751\",\"city\":\"London\",\"postalCode\":\"GU16 7HF\",\"province\":\"London\",\"country\":\"England\",\"dateOfBirth\":\"1990-12-30\",\"gender\":\"MALE\",\"isVip\":true,\"disabled\":false,\"notes\":\"Loerum ipsum\",\"account\":[\"esse\"]}"
                         },
                         "description": "Creates a new customer along with an optional account and debit card details."
                     },

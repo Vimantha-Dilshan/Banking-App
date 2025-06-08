@@ -87,7 +87,7 @@ trait CustomerPaymentTrait
     private function storeVaultTransaction(Request $request, $vault, $transactionAmount)
     {
         VaultTransaction::create([
-            'staff_id' => '',
+            'staff_id' => $request->staffId,
             'vault_id' => $vault->id,
             'transaction_type' => VaultTransaction::TYPE_IN,
             'amount' => $transactionAmount,
