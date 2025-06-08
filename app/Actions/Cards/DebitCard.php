@@ -106,7 +106,7 @@ class DebitCard
 
     private function sendEmailNotification(Customer $customer)
     {
-        $customer->notify(new DebitCardAssigned());
+        $customer->notify(new DebitCardAssigned);
         $customer->notify(new DebitCardPasscodeInform(fake()->numerify('######')));
     }
 }

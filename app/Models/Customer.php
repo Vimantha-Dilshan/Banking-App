@@ -9,7 +9,7 @@ use Laravel\Scout\Searchable;
 
 class Customer extends Model
 {
-    use HasFactory, Searchable, Notifiable;
+    use HasFactory, Notifiable, Searchable;
 
     protected $guarded = [];
 
