@@ -5,10 +5,13 @@ namespace App\Traits;
 use App\Models\CustomerAccount;
 use App\Models\CustomerAccountTransaction;
 use App\Models\FeeType;
+use App\Models\Vault;
+use App\Models\VaultTransaction;
+use Illuminate\Http\Request;
 
 trait CustomerPaymentTrait
 {
-    public function makePayment(CustomerAccount $customerAccount, $transactionAmount, $notes) {
+    public function makePayment(Request $request, CustomerAccount $customerAccount, $transactionAmount, $notes) {
         $canMakePayment = $this->canMakePayment($customerAccount, $transactionAmount);
 
         if (! $canMakePayment) {
@@ -18,6 +21,7 @@ trait CustomerPaymentTrait
         $customerAccount = $this->reduceTransactionFee($customerAccount, $transactionAmount);
 
         $this->storeCustomerAccountTransaction($customerAccount, $transactionAmount, $notes);
+        $this->transferToBankVault($request, $transactionAmount);
 
         return true;
     }
@@ -58,5 +62,36 @@ trait CustomerPaymentTrait
             'reference_number' => fake()->uuid,
             'notes' => $notes
         ]);
+    }
+
+    private function transferToBankVault(Request $request, $transactionAmount)
+    {
+        $vault = $this->storeVault($request, $transactionAmount);
+        $this->storeVaultTransaction($request, $vault, $transactionAmount);
+    }
+
+    private function storeVault(Request $request, $transactionAmount)
+    {
+        $vault = Vault::where('brand_id', $request->branchId)
+        ->where('status', Vault::STATUS_ACTIVE)
+        ->first();
+
+        $vault->update([
+            'balance' => $vault->balance + $transactionAmount,
+        ]);
+
+        return $vault;
+    }
+
+    private function storeVaultTransaction(Request $request, $vault, $transactionAmount)
+    {
+       VaultTransaction::create([
+        'staff_id' => '',
+        'vault_id' => $vault->id,
+        'transaction_type' => VaultTransaction::TYPE_IN,
+        'amount' => $transactionAmount,
+        'balance_after' => $vault->balance,
+        'reason' => 'Debit Card Fee of CUST-' . $request->customerId . ' for ' . now()->year . '-' . now()->month,
+       ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\V1\Card;
 
+use App\Models\Branch;
 use App\Models\CardType;
 use App\Models\Customer;
 use App\Models\CustomerAccount;
@@ -17,7 +18,12 @@ class StoreCardRequest extends FormRequest
             'customerId' => [
                 'required',
                 'integer',
-                Rule::exists(Customer::class, 'id'),
+                Rule::exists(Customer::class),
+            ],
+            'branchId' => [
+                'required',
+                'integer',
+                Rule::exists(Branch::class),
             ],
             'cardDetails' => [
                 'required',
@@ -58,7 +64,7 @@ class StoreCardRequest extends FormRequest
             'accountDetails.accountId' => [
                 'required',
                 'integer',
-                Rule::exists(CustomerAccount::class, 'id'),
+                Rule::exists(CustomerAccount::class),
             ],
         ];
     }

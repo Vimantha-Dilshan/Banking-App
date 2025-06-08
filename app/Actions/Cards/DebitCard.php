@@ -26,14 +26,12 @@ class DebitCard
             return $next($request);
         }
 
-        $cardBank = $this->checkCardAvailability(
+        if (! $cardBank = $this->checkCardAvailability(
             $request->cardDetails['cardNumber'],
             $request->cardDetails['cardType'],
             false,
             true,
-        );
-
-        if (! $cardBank) {
+        )) {
             return response()->json(
                 ['message' => $request->cardDetails['cardType'].' card number '.$request->cardDetails['cardNumber'].' is not available.'],
                 Response::HTTP_UNPROCESSABLE_ENTITY,
@@ -44,6 +42,7 @@ class DebitCard
         $transactionAmount = $this->getDebitCardAnnualCharges($request->cardDetails['cardType']);
 
         if (! $this->makePayment(
+            $request,
             $customer->primaryAccount,
             $transactionAmount,
             'Debit Card Annual Charge'.now()->year
