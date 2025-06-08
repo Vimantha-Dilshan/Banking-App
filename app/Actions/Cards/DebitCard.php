@@ -25,12 +25,14 @@ class DebitCard
             return $next($request);
         }
 
-        if (! $this->checkCardAvailability(
+        $cardBank = $this->checkCardAvailability(
             $request->cardDetails['cardNumber'],
             $request->cardDetails['cardType'],
             false,
             true,
-        )) {
+        );
+
+        if (! $cardBank) {
             return response()->json(
                 ['message' => $request->cardDetails['cardType'].' card number '.$request->cardDetails['cardNumber'].' is not available.'],
                 Response::HTTP_UNPROCESSABLE_ENTITY,
@@ -54,6 +56,7 @@ class DebitCard
         }
 
         $customerDebitCard = $this->storeDebitCard($customer,$request);
+        $this->updateCardBank($cardBank);
 
         // TODO: Setup the annual billing charge
 
@@ -81,6 +84,13 @@ class DebitCard
             'expiry_date' => now()->addYears(4)->format('m/Y'),
             'cardholder_name' => $request->cardDetails['cardHolderName'] ?? strtoupper($customer->first_name.' '.$customer->last_name),
             'notes' => $request->cardDetails['notes'] ?? null,
+        ]);
+    }
+
+    private function updateCardBank($cardBank)
+    {
+        $cardBank->update([
+            'status' => 'ALLOCATED',
         ]);
     }
 }

@@ -28,13 +28,13 @@ trait CardTrait
         if ($cardType == CardType::VISA) {
             return VisaCreditCard::where('card_number', $cardNumber)
                 ->available()
-                ->exists();
+                ->first();
         }
 
         if ($cardType == CardType::MASTERCARD) {
             return MastercardCreditCard::where('card_number', $cardNumber)
                 ->available()
-                ->exists();
+                ->first();
         }
 
         return false;

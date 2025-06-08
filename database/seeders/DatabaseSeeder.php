@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
             StaffMemberSeeder::class,
             VaultSeeder::class,
             VaultTransactionSeeder::class,
+            DebitCardBillingSeeder::class,
+            CreditCardBillingSeeder::class,
         ]);
     }
 }
