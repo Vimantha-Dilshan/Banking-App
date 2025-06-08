@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    @apply bg-white text-gray-900;
+}
+
+.dark body {
+    @apply bg-black text-white;
+}
+
+.dark .card {
+    @apply bg-gray-900 text-white border-gray-700;
+}
+
+@layer base {
+    label {
+        @apply text-gray-900 dark:text-gray-200;
+    }
+
+    input,
+    textarea,
+    select {
+        @apply bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600;
+    }
+
+    ::placeholder {
+        @apply text-gray-400 dark:text-gray-400;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        @apply ring-2 ring-green-500 outline-none;
+    }
+}
+
+@layer components {
+    .dropdown-link {
+        @apply block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700;
+    }
+}
