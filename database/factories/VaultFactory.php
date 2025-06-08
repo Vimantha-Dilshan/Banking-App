@@ -17,13 +17,13 @@ class VaultFactory extends Factory
             'branch_id' => Branch::factory()->create()->id,
             'type' => fake()->randomElement([
                 Vault::TYPE_MAIN,
-                Vault::TYPE_SUB
+                Vault::TYPE_SUB,
             ]),
             'currency' => 'LKR',
             'balance' => fake()->randomFloat(2, 10000, 500000),
             'status' => fake()->randomElement([
                 Vault::STATUS_ACTIVE,
-                Vault::STATUS_INACTIVE
+                Vault::STATUS_INACTIVE,
             ]),
         ];
     }

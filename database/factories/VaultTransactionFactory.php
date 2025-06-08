@@ -22,7 +22,7 @@ class VaultTransactionFactory extends Factory
             'vault_id' => $vault->id,
             'transaction_type' => fake()->randomElement([
                 VaultTransaction::TYPE_IN,
-                VaultTransaction::TYPE_OUT
+                VaultTransaction::TYPE_OUT,
             ]),
             'amount' => $amount,
             'balance_after' => $newBalance,

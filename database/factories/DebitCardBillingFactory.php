@@ -19,7 +19,7 @@ class DebitCardBillingFactory extends Factory
 
         $customerCreditCard = CustomerDebitCard::factory()->create([
             'customer_id' => $customer->id,
-            'status' => CustomerDebitCard::STATUS_ACTIVE
+            'status' => CustomerDebitCard::STATUS_ACTIVE,
         ]);
 
         return [

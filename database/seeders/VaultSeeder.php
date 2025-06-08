@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Vault;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class VaultSeeder extends Seeder

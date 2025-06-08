@@ -25,7 +25,7 @@ class StaffMemberFactory extends Factory
             'gender' => fake()->randomElement([
                 StaffMember::GENDER_MALE,
                 StaffMember::GENDER_FEMALE,
-                StaffMember::GENDER_OTHER
+                StaffMember::GENDER_OTHER,
             ]),
             'position' => fake()->randomElement(['Teller', 'Manager', 'Analyst']),
             'department' => fake()->randomElement(['Loans', 'IT', 'Operations', 'Administration']),
@@ -33,7 +33,7 @@ class StaffMemberFactory extends Factory
             'status' => fake()->randomElement([
                 StaffMember::STATUS_ACTIVE,
                 StaffMember::STATUS_INACTIVE,
-                StaffMember::STATUS_SUSPENDED
+                StaffMember::STATUS_SUSPENDED,
             ]),
             'date_joined' => fake()->date(),
             'date_left' => fake()->optional()->date(),

@@ -13,7 +13,9 @@ class Branch extends Model
     protected $guarded = [];
 
     public const STATUS_ACTIVE = 'ACTIVE';
+
     public const STATUS_INACTIVE = 'INACTIVE';
+
     public const STATUS_CLOSED = 'CLOSED';
 
     public function manager()

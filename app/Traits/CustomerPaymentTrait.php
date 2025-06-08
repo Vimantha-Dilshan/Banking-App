@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 
 trait CustomerPaymentTrait
 {
-    public function makePayment(Request $request, CustomerAccount $customerAccount, $transactionAmount, $notes) {
+    public function makePayment(Request $request, CustomerAccount $customerAccount, $transactionAmount, $notes)
+    {
         $canMakePayment = $this->canMakePayment($customerAccount, $transactionAmount);
 
         if (! $canMakePayment) {
@@ -60,7 +61,7 @@ trait CustomerPaymentTrait
             'amount' => $transactionAmount,
             'balance_after_transaction' => $customerAccount->balance,
             'reference_number' => fake()->uuid,
-            'notes' => $notes
+            'notes' => $notes,
         ]);
     }
 
@@ -73,8 +74,8 @@ trait CustomerPaymentTrait
     private function storeVault(Request $request, $transactionAmount)
     {
         $vault = Vault::where('brand_id', $request->branchId)
-        ->where('status', Vault::STATUS_ACTIVE)
-        ->first();
+            ->where('status', Vault::STATUS_ACTIVE)
+            ->first();
 
         $vault->update([
             'balance' => $vault->balance + $transactionAmount,
@@ -85,13 +86,13 @@ trait CustomerPaymentTrait
 
     private function storeVaultTransaction(Request $request, $vault, $transactionAmount)
     {
-       VaultTransaction::create([
-        'staff_id' => '',
-        'vault_id' => $vault->id,
-        'transaction_type' => VaultTransaction::TYPE_IN,
-        'amount' => $transactionAmount,
-        'balance_after' => $vault->balance,
-        'reason' => 'Debit Card Fee of CUST-' . $request->customerId . ' for ' . now()->year . '-' . now()->month,
-       ]);
+        VaultTransaction::create([
+            'staff_id' => '',
+            'vault_id' => $vault->id,
+            'transaction_type' => VaultTransaction::TYPE_IN,
+            'amount' => $transactionAmount,
+            'balance_after' => $vault->balance,
+            'reason' => 'Debit Card Fee of CUST-'.$request->customerId.' for '.now()->year.'-'.now()->month,
+        ]);
     }
 }

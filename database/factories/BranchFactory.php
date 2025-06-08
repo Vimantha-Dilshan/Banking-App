@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Branch;
-use App\Models\StaffMember;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BranchFactory extends Factory
@@ -13,11 +12,11 @@ class BranchFactory extends Factory
     public function definition(): array
     {
         $branch = fake()->city();
-        $email = strtolower(str_replace(' ', '.', $branch)) . '.branch@codex.com';
+        $email = strtolower(str_replace(' ', '.', $branch)).'.branch@codex.com';
 
         return [
-            'code' => 'BR' . fake()->numerify('######'),
-            'name' => $branch . ' Branch',
+            'code' => 'BR'.fake()->numerify('######'),
+            'name' => $branch.' Branch',
             'address_line1' => fake()->streetAddress(),
             'address_line2' => fake()->secondaryAddress(),
             'city' => $branch,
@@ -30,7 +29,7 @@ class BranchFactory extends Factory
             'status' => fake()->randomElement([
                 Branch::STATUS_ACTIVE,
                 Branch::STATUS_INACTIVE,
-                Branch::STATUS_CLOSED
+                Branch::STATUS_CLOSED,
             ]),
             'latitude' => fake()->latitude(),
             'longitude' => fake()->longitude(),

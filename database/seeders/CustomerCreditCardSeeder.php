@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\CustomerCreditCard;
-use App\Models\CustomerDebitCard;
 use Illuminate\Database\Seeder;
 
 class CustomerCreditCardSeeder extends Seeder

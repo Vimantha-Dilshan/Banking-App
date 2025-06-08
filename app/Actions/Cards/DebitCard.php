@@ -5,8 +5,6 @@ namespace App\Actions\Cards;
 use App\Http\Resources\V1\CustomerManagement\DebitCardResource;
 use App\Models\CardType;
 use App\Models\Customer;
-use App\Models\CustomerAccount;
-use App\Models\CustomerAccountTransaction;
 use App\Models\CustomerDebitCard;
 use App\Models\DebitCardBilling;
 use App\Models\FeeType;
@@ -53,7 +51,7 @@ class DebitCard
             );
         }
 
-        $customerDebitCard = $this->storeDebitCard($customer,$request);
+        $customerDebitCard = $this->storeDebitCard($customer, $request);
         $this->updateCardBank($cardBank);
         $this->storeDebitCardbilling($customer);
 
@@ -72,7 +70,8 @@ class DebitCard
         return $feeType->amount;
     }
 
-    private function storeDebitCard(Customer $customer, Request $request){
+    private function storeDebitCard(Customer $customer, Request $request)
+    {
         return CustomerDebitCard::create([
             'customer_id' => $request->customerId,
             'linked_account' => $request->accountDetails['accountId'],

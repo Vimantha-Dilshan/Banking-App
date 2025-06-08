@@ -13,6 +13,7 @@ class VaultTransaction extends Model
     protected $guarded = [];
 
     public const TYPE_IN = 'IN';
+
     public const TYPE_OUT = 'OUT';
 
     public function vault()

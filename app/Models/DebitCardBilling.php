@@ -13,5 +13,6 @@ class DebitCardBilling extends Model
     protected $guarded = [];
 
     public const BILLING_STATUS_SUCCESS = 'SUCCESS';
+
     public const BILLING_STATUS_FAILED = 'FAILED';
 }
